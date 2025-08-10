@@ -22,8 +22,8 @@ export function MainLayout({ children }: MainLayoutProps) {
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       {/* Main Content */}
-      <div className={sidebarOpen ? "lg:pl-64" : "lg:pl-20"}>
-        <main className="min-h-screen">{children}</main>
+      <div className="transition-all duration-300" style={{ marginLeft: 0, paddingLeft: 0 }}>
+        <main className="min-h-screen w-full max-w-full px-2 sm:px-4 md:px-8 lg:pl-[260px]">{children}</main>
       </div>
 
       {/* Mobile Overlay */}

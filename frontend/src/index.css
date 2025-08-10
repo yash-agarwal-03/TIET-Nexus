@@ -1,6 +1,7 @@
 /* src/index.css */
 @import "tailwindcss";
 
+/* The following Tailwind directives require processing by PostCSS with Tailwind CSS plugin */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

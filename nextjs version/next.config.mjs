@@ -1,4 +1,4 @@
-/** @type {import('./nextjs version/node_modules/next').NextConfig} */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
