@@ -1,5 +1,8 @@
 1. DO NOT MERGE YOUR CODE
-2. Always PULL -> WORK -> PUSH the code before working on it. EVERYTIME YOU WORK ON IT.
-2. Work in your own feature branches. Everytime the work is completed in that branch, push to your branch.
+
+2. Always PULL the code before working on it-> WORK -> PUSH . EVERYTIME YOU WORK ON IT.
+
+3. Work in your own feature branches. Everytime the work is completed in that branch, push to your branch.
     Only the admin (Yash) will merge the Code. (Otherwise there will be too much chaos in the repo).
-3. Whatever work you do, commit at the End of Day
+
+4. Whatever work you do, commit at the End of Day

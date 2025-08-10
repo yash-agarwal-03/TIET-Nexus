@@ -1,0 +1,72 @@
+[
+	{
+		"id": "1",
+		"name": "Dr. Ashima Singh",
+		"role": "Associate Professor",
+		"type": "supervisor",
+		"image": "/placeholder.svg?height=200&width=200",
+		"bio": "Associate Professor specializing in DevOps, Data Mining and machine intelligence, Software Engineering and Software Components & Reuse",
+		"email": "ashima@thapar.edu",
+		"linkedin": "https://www.linkedin.com/in/dr-ashima-singh-4175601a/"
+	},
+	{
+		"id": "2",
+		"name": "Dr. Jaskirat Singh",
+		"role": "Assistant Professor",
+		"type": "supervisor",
+		"image": "/placeholder.svg?height=200&width=200",
+		"bio": "Assistant Professor specializing in EEG Signal Processing, Cognitive Remediation and Wireless Sensor Networks.",
+		"email": "jaskirat.singh@thapar.edu",
+		"linkedin": "https://csed.thapar.edu/facultydetails/MTQyNQ=="
+	},
+	{
+		"id": "3",
+		"name": "Yash Agarwal",
+		"role": "Full Stack Developer & Team Lead",
+		"type": "developer",
+		"image": "/placeholder.svg?height=200&width=200",
+		"bio": "Final year CSE student passionate about creating seamless user experiences. Leads the development team and specializes in React and Node.js.",
+		"skills": ["React", "Node.js", "TypeScript", "MongoDB", "AWS"],
+		"email": "arjun.singh@student.thapar.edu",
+		"linkedin": "https://linkedin.com/in/arjunsingh",
+		"github": "https://github.com/arjunsingh",
+		"portfolio": "https://arjunsingh.dev"
+	},
+	{
+		"id": "4",
+		"name": "Geetansh Mohindru",
+		"role": "Full Stack Developer & UI/UX Designer",
+		"type": "developer",
+		"image": "/placeholder.svg?height=200&width=200",
+		"bio": "Creative developer with an eye for design. Focuses on creating intuitive interfaces and ensuring excellent user experience across all platforms.",
+		"skills": ["React", "Next.js", "Tailwind CSS", "Figma", "Adobe XD"],
+		"email": "sneha.patel@student.thapar.edu",
+		"linkedin": "https://linkedin.com/in/snehapatel",
+		"github": "https://github.com/snehapatel",
+		"portfolio": "https://snehapatel.design"
+	},
+	{
+		"id": "5",
+		"name": "Jyotansh Mohindru",
+		"role": "Backend Developer & AI/ML Expert",
+		"type": "developer",
+		"image": "/placeholder.svg?height=200&width=200",
+		"bio": "Backend enthusiast who loves building robust APIs and managing databases. Ensures the application runs smoothly and securely behind the scenes.",
+		"skills": ["Node.js", "Express", "PostgreSQL", "Redis", "Docker"],
+		"email": "rohit.kumar@student.thapar.edu",
+		"linkedin": "https://linkedin.com/in/rohitkumar",
+		"github": "https://github.com/rohitkumar"
+	},
+	{
+		"id": "6",
+		"name": "Arnav Sen",
+		"role": "Frontend Developer & AI/ML Expert",
+		"type": "developer",
+		"image": "/placeholder.svg?height=200&width=200",
+		"bio": "Mobile development specialist ensuring the platform works seamlessly across all devices. Also handles quality assurance and testing.",
+		"skills": ["React Native", "Flutter", "Jest", "Cypress", "Firebase"],
+		"email": "ananya.gupta@student.thapar.edu",
+		"linkedin": "https://linkedin.com/in/ananyagupta",
+		"github": "https://github.com/ananyagupta"
+	}
+]
