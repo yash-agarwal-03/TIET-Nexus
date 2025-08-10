@@ -22,7 +22,7 @@ export function MainLayout({ children }: MainLayoutProps) {
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       {/* Main Content */}
-      <div className="lg:pl-64">
+      <div className={sidebarOpen ? "lg:pl-64" : "lg:pl-20"}>
         <main className="min-h-screen">{children}</main>
       </div>
 

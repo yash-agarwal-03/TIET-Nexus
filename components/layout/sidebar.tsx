@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { useAuth } from "@/components/providers"
-import { Home, Compass, Map, Bot, Rss, Phone, Users, LogIn, LogOut, X } from "lucide-react"
+import { Home, Compass, Map, Bot, Rss, Phone, Users, LogIn, LogOut, X, User } from "lucide-react"
 
 interface SidebarProps {
   isOpen: boolean
@@ -40,7 +40,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     <>
       {/* Desktop Sidebar */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-64 lg:flex-col">
-        <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white border-r border-gray-200 px-6 pb-4">
+        <div className="flex grow flex-col justify-between bg-white border-r border-gray-200 px-6 pb-4">
           {/* Logo */}
           <div className="flex h-16 shrink-0 items-center">
             <div className="flex items-center gap-3">
@@ -51,64 +51,51 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             </div>
           </div>
 
-          {/* Profile Section */}
-          <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-            <Avatar className="w-10 h-10">
-              <AvatarImage src={user?.avatar || "/placeholder.svg?height=40&width=40"} />
-              <AvatarFallback className="bg-blue-100 text-blue-700">
-                {isGuest
-                  ? "G"
-                  : user?.name
-                      ?.split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-              </AvatarFallback>
-            </Avatar>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-gray-900 truncate">{isGuest ? "Guest" : user?.name}</p>
-              {!isGuest && <p className="text-xs text-gray-500 truncate">{user?.email}</p>}
-            </div>
-            {isGuest ? (
-              <Button size="sm" variant="outline" onClick={handleLogin}>
-                <LogIn className="w-4 h-4" />
-              </Button>
-            ) : (
-              <Button size="sm" variant="ghost" onClick={logout}>
-                <LogOut className="w-4 h-4" />
-              </Button>
-            )}
-          </div>
-
           {/* Navigation */}
-          <nav className="flex flex-1 flex-col">
-            <ul role="list" className="flex flex-1 flex-col gap-y-7">
-              <li>
-                <ul role="list" className="-mx-2 space-y-1">
-                  {navigation.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className={cn(
-                          pathname === item.href
-                            ? "bg-blue-50 text-blue-700"
-                            : "text-gray-700 hover:text-blue-700 hover:bg-gray-50",
-                          "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold transition-colors",
-                        )}
-                      >
-                        <item.icon
-                          className={cn(
-                            pathname === item.href ? "text-blue-700" : "text-gray-400 group-hover:text-blue-700",
-                            "h-6 w-6 shrink-0",
-                          )}
-                        />
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </li>
+          <nav className="flex flex-1 flex-col mt-2">
+            <ul role="list" className="flex flex-1 flex-col gap-y-2">
+              {navigation.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      pathname === item.href
+                        ? "bg-blue-50 text-blue-700"
+                        : "text-gray-700 hover:text-blue-700 hover:bg-gray-50",
+                      "group flex gap-x-3 rounded-md p-2 text-base leading-6 font-semibold transition-colors items-center",
+                    )}
+                  >
+                    <item.icon
+                      className={cn(
+                        pathname === item.href ? "text-blue-700" : "text-gray-400 group-hover:text-blue-700",
+                        "h-6 w-6 shrink-0",
+                      )}
+                    />
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
+
+          {/* User Info & Login/Logout at bottom */}
+          <div className="mt-4 mb-2 flex flex-col gap-2">
+            <div className="flex items-center gap-3 bg-gray-100 rounded-lg px-3 py-2">
+              <User className="w-5 h-5 text-gray-500" />
+              <span className="text-sm font-medium text-gray-900 truncate">{isGuest ? "Guest" : user?.name}</span>
+            </div>
+            <Button
+              className="w-full h-10 rounded-lg text-base font-semibold"
+              variant={isGuest ? "default" : "destructive"}
+              onClick={isGuest ? handleLogin : logout}
+            >
+              {isGuest ? (
+                <><LogIn className="w-5 h-5 mr-2" /> Login</>
+              ) : (
+                <><LogOut className="w-5 h-5 mr-2" /> Logout</>
+              )}
+            </Button>
+          </div>
         </div>
       </div>
 

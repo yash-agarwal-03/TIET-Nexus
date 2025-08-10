@@ -20,11 +20,11 @@ function ExplorePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#eb4034] p-6">
+  <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-white mb-4">Explore TIET Societies & Clubs</h1>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold text-[#d51212] mb-4">Explore TIET Societies & Clubs</h1>
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             Discover amazing communities, develop new skills, and make lifelong connections. Join a society that matches your interests and passions.
           </p>
         </div>
@@ -42,7 +42,7 @@ function ExplorePage() {
           >
             <div className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto relative animate-fadeIn p-8 border border-gray-100">
               <button
-                className="absolute top-4 right-4 text-gray-400 hover:text-[#eb4034] text-2xl font-bold"
+                className="absolute top-4 right-4 text-gray-400 hover:text-[#d51212] text-2xl font-bold"
                 onClick={() => setSelectedSociety(null)}
                 aria-label="Close"
               >
@@ -54,10 +54,10 @@ function ExplorePage() {
               <hr className="my-4" />
               {/* Info Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 text-sm">
-                <div className="flex items-center gap-2"><span className="font-bold text-[#eb4034]">{selectedSociety.memberCount}</span> active members</div>
-                <div className="flex items-center gap-2"><span className="font-bold text-[#eb4034]">{selectedSociety.contactEmail}</span></div>
-                <div className="flex items-center gap-2">Established in <span className="font-bold text-[#eb4034]">{selectedSociety.establishedYear}</span></div>
-                <div className="flex items-center gap-2"><span className="font-bold text-[#eb4034]">{selectedSociety.contactPhone}</span></div>
+                <div className="flex items-center gap-2"><span className="font-bold text-[#d51212]">{selectedSociety.memberCount}</span> active members</div>
+                <div className="flex items-center gap-2"><span className="font-bold text-[#d51212]">{selectedSociety.contactEmail}</span></div>
+                <div className="flex items-center gap-2">Established in <span className="font-bold text-[#d51212]">{selectedSociety.establishedYear}</span></div>
+                <div className="flex items-center gap-2"><span className="font-bold text-[#d51212]">{selectedSociety.contactPhone}</span></div>
                 <div className="flex items-center gap-2">{selectedSociety.location}</div>
               </div>
               <hr className="my-4" />
