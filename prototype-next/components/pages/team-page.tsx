@@ -124,7 +124,7 @@ export function TeamPage() {
                 <CardContent className="p-6 text-center">
                   <Avatar className="w-32 h-32 mx-auto mb-4">
                     <AvatarImage src={member.image || "/place.svg"} />
-                    <AvatarFallback className="text-2xl bg-blue-100 text-blue-700">
+                    <AvatarFallback className="text-2xl bg-red-100 text-[#B11317]">
                       {member.name
                         .split(" ")
                         .map((n) => n[0])
@@ -133,7 +133,7 @@ export function TeamPage() {
                   </Avatar>
 
                   <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-blue-600 font-medium mb-4">{member.role}</p>
+                  <p className="text-[#B11317] font-medium mb-4">{member.role}</p>
 
                   <p className="text-gray-600 text-sm mb-6 leading-relaxed">{member.bio}</p>
 
@@ -173,7 +173,7 @@ export function TeamPage() {
                   <div className="flex items-start gap-4 mb-4">
                     <Avatar className="w-16 h-16">
                       <AvatarImage src={member.image || "/place.svg"} />
-                      <AvatarFallback className="bg-blue-100 text-blue-700">
+                      <AvatarFallback className="bg-red-100 text-[#B11317]">
                         {member.name
                           .split(" ")
                           .map((n) => n[0])
@@ -183,7 +183,7 @@ export function TeamPage() {
 
                     <div className="flex-1">
                       <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
-                      <p className="text-blue-600 font-medium text-sm mb-2">{member.role}</p>
+                      <p className="text-[#B11317] font-medium text-sm mb-2">{member.role}</p>
 
                       {member.skills && (
                         <div className="flex flex-wrap gap-1 mb-3">
@@ -238,29 +238,34 @@ export function TeamPage() {
         </div>
 
         {/* Project Info */}
-        <div className="mt-16 text-center">
-          <Card className="bg-blue-50 border-blue-200">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">About TIET Nexus</h3>
-              <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                TIET Nexus is a comprehensive campus platform developed as a final year project by Computer Science
-                students at Thapar Institute of Engineering & Technology. The platform aims to connect students,
-                faculty, and staff while providing essential campus services and information in one unified digital
-                space.
-              </p>
-              <div className="mt-6 flex justify-center gap-4">
-                <Badge variant="outline" className="px-3 py-1">
-                  React.js
-                </Badge>
-                <Badge variant="outline" className="px-3 py-1">
-                  Next.js
-                </Badge>
-                <Badge variant="outline" className="px-3 py-1">
-                  Node.js
-                </Badge>
-                <Badge variant="outline" className="px-3 py-1">
-                  MongoDB
-                </Badge>
+        <div className="mt-16 flex justify-center">
+          <Card className="bg-red-50 border-red-200 w-full max-w-4xl mx-auto flex items-center justify-center">
+            <CardContent className="flex flex-row items-center justify-center w-full p-8 gap-4">
+              {/* Logo on the left, 80% of about div height */}
+              <div className="flex-shrink-0 flex items-center justify-center h-full" style={{height:'100%'}}>
+                <div className="rounded-full overflow-hidden bg-white flex items-center justify-center ml-10" style={{ height: '80%', aspectRatio: '1/1', minHeight: '80px', minWidth: '80px', maxHeight: '180px', maxWidth: '180px' }}>
+                  <img
+                    src="/logos/tiet.png"
+                    alt="TIET Logo"
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+              </div>
+              {/* Content shrunk horizontally, close to logo */}
+              <div className="flex-1 flex flex-col items-start justify-center ml-4">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">About TIET Nexus</h3>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  TIET Nexus is a comprehensive campus platform developed as a final year project by Computer Science
+                  students at Thapar Institute of Engineering & Technology. The platform aims to connect students,
+                  faculty, and staff while providing essential campus services and information in one unified digital
+                  space.
+                </p>
+                <div className="flex flex-wrap gap-3 mt-2">
+                  <Badge variant="outline" className="px-3 py-1">React.js</Badge>
+                  <Badge variant="outline" className="px-3 py-1">Next.js</Badge>
+                  <Badge variant="outline" className="px-3 py-1">Node.js</Badge>
+                  <Badge variant="outline" className="px-3 py-1">MongoDB</Badge>
+                </div>
               </div>
             </CardContent>
           </Card>

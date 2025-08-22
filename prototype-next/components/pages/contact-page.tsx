@@ -22,7 +22,7 @@ export function ContactPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-blue-600" />
+                  <MapPin className="w-5 h-5 text-[#B11317]" />
                   Campus Address
                 </CardTitle>
               </CardHeader>
@@ -40,7 +40,7 @@ export function ContactPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 text-blue-600" />
+                  <Phone className="w-5 h-5 text-[#B11317]" />
                   Phone Numbers
                 </CardTitle>
               </CardHeader>
@@ -63,7 +63,7 @@ export function ContactPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 text-blue-600" />
+                  <Mail className="w-5 h-5 text-[#B11317]" />
                   Email Addresses
                 </CardTitle>
               </CardHeader>
@@ -86,7 +86,7 @@ export function ContactPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-blue-600" />
+                  <Clock className="w-5 h-5 text-[#B11317]" />
                   Office Hours
                 </CardTitle>
               </CardHeader>
@@ -111,20 +111,20 @@ export function ContactPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Globe className="w-5 h-5 text-blue-600" />
+                  <Globe className="w-5 h-5 text-[#B11317]" />
                   Online Resources
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
                 <div>
                   <p className="font-medium">Official Website</p>
-                  <a href="https://www.thapar.edu" className="text-blue-600 hover:underline">
+                  <a href="https://www.thapar.edu" className="text-[#B11317] hover:underline">
                     www.thapar.edu
                   </a>
                 </div>
                 <div>
                   <p className="font-medium">Student Portal</p>
-                  <a href="https://portal.thapar.edu" className="text-blue-600 hover:underline">
+                  <a href="https://portal.thapar.edu" className="text-[#B11317] hover:underline">
                     portal.thapar.edu
                   </a>
                 </div>
@@ -171,7 +171,7 @@ export function ContactPage() {
                     <Textarea placeholder="Please describe your query in detail..." rows={6} />
                   </div>
 
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700">Send Message</Button>
+                  <Button className="w-full bg-[#B11317] hover:bg-red-800">Send Message</Button>
                 </form>
               </CardContent>
             </Card>

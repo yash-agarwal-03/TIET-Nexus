@@ -3,8 +3,9 @@ import { NextResponse } from "next/server"
 // Sample data - In a real application, this would come from a database
 const societies = [
   {
+  logo: "/logos/ccs.png",
     id: "1",
-    name: "Creative Computing Society ( CCS )",
+    name: "Creative Computing Society (CCS)",
     shortDescription:
       "Creative Computing Society is an elite technical society with the vision to help students achieve hands on experience in technical experience",
     fullDescription:
@@ -87,6 +88,7 @@ const societies = [
     ],
   },
   {
+  logo: "/logos/mlsc.png",
     id: "2",
     name: "Microsoft Student Chapter (MLSC)",
     shortDescription:
@@ -98,7 +100,7 @@ const societies = [
     establishedYear: 2010,
     meetingSchedule: "Tuesday & Thursday 6:00 PM",
     location: "Theatre Hall, Arts Building",
-    contactEmail: "drama.club@college.edu",
+    contactEmail: "msc@thapar.edu",
     contactPhone: "+1 (555) 234-5678",
     website: "https://mlsctiet.com/",
     socialMedia: {
@@ -115,19 +117,19 @@ const societies = [
       {
         name: "Prisha Khandari",
         position: "Secretary",
-        email: "ryan.oconnor@college.edu",
+        email: "prisha@college.edu",
         avatar: "/place.svg?height=40&width=40",
       },
       {
         name: "Mankirat Singh",
         position: "Head",
-        email: "james.wilson@college.edu",
+        email: "mankirat@college.edu",
         avatar: "/place.svg?height=40&width=40",
       },
       {
         name: "Krishnam Agarwal",
-        position: "Stage Manager",
-        email: "sophie.turner@college.edu",
+        position: "Secretary",
+        email: "krishnam@college.edu",
         avatar: "/place.svg?height=40&width=40",
       },
       
@@ -166,6 +168,7 @@ const societies = [
     ],
   },
   {
+  logo: "/logos/edc.png",
     id: "3",
     name: "Thapar Venture Club (Formerly EDC)",
     shortDescription:
@@ -244,8 +247,9 @@ const societies = [
     ],
   },
   {
+  logo: "/logos/faps.jpg",
     id: "4",
-    name: "Fine Arts & Photography",
+    name: "Fine Arts & Photography Society (FAPS)",
     shortDescription:
       "Capturing moments and developing artistic vision through photography workshops, exhibitions, and photo walks.",
     fullDescription:
@@ -315,6 +319,7 @@ const societies = [
     ],
   },
   {
+  logo: "/logos/taas.jpeg",
     id: "5",
     name: "Thapar Amateur Astronomers Society (TAAS)",
     shortDescription:
@@ -391,6 +396,7 @@ const societies = [
     ],
   },
   {
+  logo: "/logos/mudra.jpeg",
     id: "6",
     name: "Music and Dramatic Society (MUDRA)",
     shortDescription:

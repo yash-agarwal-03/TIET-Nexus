@@ -44,8 +44,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           {/* Logo */}
           <div className="flex h-16 shrink-0 items-center">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">T</span>
+              <div className="w-10 h-10 rounded-lg overflow-hidden bg-white flex items-center justify-center">
+                <img
+                  src="/logos/tiet.png"
+                  alt="Thapar Institute Logo"
+                  className="object-cover w-full h-full"
+                />
               </div>
               <span className="text-xl font-bold text-gray-900">TIET Nexus</span>
             </div>
@@ -55,7 +59,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
             <Avatar className="w-10 h-10">
               <AvatarImage src={user?.avatar || "/place.svg?height=40&width=40"} />
-              <AvatarFallback className="bg-blue-100 text-blue-700">
+              <AvatarFallback className="bg-red-100 text-[#B11317]">
                 {isGuest
                   ? "G"
                   : user?.name
@@ -90,14 +94,14 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                         href={item.href}
                         className={cn(
                           pathname === item.href
-                            ? "bg-blue-50 text-blue-700"
-                            : "text-gray-700 hover:text-blue-700 hover:bg-gray-50",
+                            ? "bg-red-50 text-[#B11317]"
+                            : "text-gray-700 hover:text-[#B11317] hover:bg-gray-50",
                           "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold transition-colors",
                         )}
                       >
                         <item.icon
                           className={cn(
-                            pathname === item.href ? "text-blue-700" : "text-gray-400 group-hover:text-blue-700",
+                            pathname === item.href ? "text-[#B11317]" : "text-gray-400 group-hover:text-[#B11317]",
                             "h-6 w-6 shrink-0",
                           )}
                         />
@@ -123,7 +127,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           {/* Mobile Header */}
           <div className="flex h-16 shrink-0 items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#B11317] rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">T</span>
               </div>
               <span className="text-xl font-bold text-gray-900">TIET Nexus</span>
@@ -137,7 +141,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
             <Avatar className="w-10 h-10">
               <AvatarImage src={user?.avatar || "/place.svg?height=40&width=40"} />
-              <AvatarFallback className="bg-blue-100 text-blue-700">
+              <AvatarFallback className="bg-red-100 text-[#B11317]">
                 {isGuest
                   ? "G"
                   : user?.name
@@ -173,14 +177,14 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                         onClick={onClose}
                         className={cn(
                           pathname === item.href
-                            ? "bg-blue-50 text-blue-700"
-                            : "text-gray-700 hover:text-blue-700 hover:bg-gray-50",
+                            ? "bg-red-50 text-[#B11317]"
+                            : "text-gray-700 hover:text-[#B11317] hover:bg-gray-50",
                           "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold transition-colors",
                         )}
                       >
                         <item.icon
                           className={cn(
-                            pathname === item.href ? "text-blue-700" : "text-gray-400 group-hover:text-blue-700",
+                            pathname === item.href ? "text-[#B11317]" : "text-gray-400 group-hover:text-[#B11317]",
                             "h-6 w-6 shrink-0",
                           )}
                         />

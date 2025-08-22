@@ -107,7 +107,7 @@ export function ThaparAIPage() {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
-            <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
+            <div className="w-16 h-16 bg-[#B11317] rounded-full flex items-center justify-center">
               <Bot className="w-8 h-8 text-white" />
             </div>
           </div>
@@ -127,20 +127,20 @@ export function ThaparAIPage() {
                 className={`flex gap-3 ${message.sender === "user" ? "justify-end" : "justify-start"}`}
               >
                 {message.sender === "ai" && (
-                  <Avatar className="w-8 h-8 bg-blue-100">
+                  <Avatar className="w-8 h-8 bg-red-100">
                     <AvatarFallback>
-                      <Bot className="w-4 h-4 text-blue-600" />
+                      <Bot className="w-4 h-4 text-[#B11317]" />
                     </AvatarFallback>
                   </Avatar>
                 )}
 
                 <div
                   className={`max-w-[70%] rounded-lg p-3 ${
-                    message.sender === "user" ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-900"
+                    message.sender === "user" ? "bg-[#B11317] text-white" : "bg-gray-100 text-gray-900"
                   }`}
                 >
                   <p className="text-sm">{message.content}</p>
-                  <p className={`text-xs mt-1 ${message.sender === "user" ? "text-blue-100" : "text-gray-500"}`}>
+                  <p className={`text-xs mt-1 ${message.sender === "user" ? "text-red-100" : "text-gray-500"}`}>
                     {message.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                   </p>
                 </div>
@@ -157,9 +157,9 @@ export function ThaparAIPage() {
 
             {isLoading && (
               <div className="flex gap-3 justify-start">
-                <Avatar className="w-8 h-8 bg-blue-100">
+                <Avatar className="w-8 h-8 bg-red-100">
                   <AvatarFallback>
-                    <Bot className="w-4 h-4 text-blue-600" />
+                    <Bot className="w-4 h-4 text-[#B11317]" />
                   </AvatarFallback>
                 </Avatar>
                 <div className="bg-gray-100 rounded-lg p-3">
@@ -195,7 +195,7 @@ export function ThaparAIPage() {
               <Button
                 onClick={handleSendMessage}
                 disabled={!inputMessage.trim() || isLoading}
-                className="bg-blue-600 hover:bg-blue-700"
+                className="bg-[#B11317] hover:bg-red-800"
               >
                 <Send className="w-4 h-4" />
               </Button>

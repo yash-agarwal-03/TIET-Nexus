@@ -52,7 +52,7 @@ export function FeedsPage() {
       <div className="min-h-screen bg-gray-50 p-6">
         <div className="max-w-2xl mx-auto">
           <div className="text-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#B11317] mx-auto"></div>
             <p className="mt-4 text-gray-600">Loading feeds...</p>
           </div>
         </div>
@@ -77,7 +77,7 @@ export function FeedsPage() {
             <Card key={post.id} className="relative">
               {post.isPinned && (
                 <div className="absolute top-4 right-4">
-                  <Pin className="w-4 h-4 text-blue-600" />
+                  <Pin className="w-4 h-4 text-[#B11317]" />
                 </div>
               )}
 
@@ -85,7 +85,7 @@ export function FeedsPage() {
                 <div className="flex items-start gap-3">
                   <Avatar className="w-12 h-12">
                     <AvatarImage src={post.avatar || "/place.svg"} />
-                    <AvatarFallback className="bg-blue-100 text-blue-700">
+                    <AvatarFallback className="bg-red-100 text-[#B11317]">
                       {post.author
                         .split(" ")
                         .map((n) => n[0])

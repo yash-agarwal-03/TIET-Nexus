@@ -79,13 +79,13 @@ export function CampusMapPage() {
               </CardHeader>
               <CardContent className="h-full p-0">
                 {/* Placeholder Map - Replace with actual map implementation */}
-                <div className="relative w-full h-full bg-gradient-to-br from-green-100 to-blue-100 rounded-b-lg overflow-hidden">
+                <div className="relative w-full h-full bg-gradient-to-br from-green-100 to-red-100 rounded-b-lg overflow-hidden">
                   {/* Campus Layout */}
                   <div className="absolute inset-4 bg-green-200 rounded-lg opacity-50"></div>
 
                   {/* Buildings */}
                   <div
-                    className="absolute top-20 left-20 w-24 h-16 bg-blue-500 rounded cursor-pointer hover:bg-blue-600 transition-colors flex items-center justify-center"
+                    className="absolute top-20 left-20 w-24 h-16 bg-[#B11317] rounded cursor-pointer hover:bg-red-800 transition-colors flex items-center justify-center"
                     onClick={() => handleBuildingClick("academic-block-a")}
                   >
                     <span className="text-white text-xs font-semibold text-center">Academic Block A</span>
@@ -121,7 +121,7 @@ export function CampusMapPage() {
                     <h4 className="font-semibold text-sm mb-2">Legend</h4>
                     <div className="space-y-1 text-xs">
                       <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 bg-blue-500 rounded"></div>
+                        <div className="w-3 h-3 bg-[#B11317] rounded"></div>
                         <span>Academic Buildings</span>
                       </div>
                       <div className="flex items-center gap-2">
@@ -162,7 +162,7 @@ export function CampusMapPage() {
                       <ul className="space-y-1">
                         {buildingsData[selectedBuilding].facilities.map((facility, index) => (
                           <li key={index} className="flex items-center gap-2 text-sm text-gray-600">
-                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-[#B11317] rounded-full"></div>
                             {facility}
                           </li>
                         ))}
@@ -171,7 +171,7 @@ export function CampusMapPage() {
 
                     <div className="space-y-3">
                       <div className="flex items-center gap-3 text-sm">
-                        <Clock className="w-4 h-4 text-blue-600" />
+                        <Clock className="w-4 h-4 text-[#B11317]" />
                         <span>
                           <strong>Timings:</strong> {buildingsData[selectedBuilding].timings}
                         </span>
@@ -179,7 +179,7 @@ export function CampusMapPage() {
 
                       {buildingsData[selectedBuilding].contact && (
                         <div className="flex items-center gap-3 text-sm">
-                          <Phone className="w-4 h-4 text-blue-600" />
+                          <Phone className="w-4 h-4 text-[#B11317]" />
                           <span>
                             <strong>Contact:</strong> {buildingsData[selectedBuilding].contact}
                           </span>
@@ -188,7 +188,7 @@ export function CampusMapPage() {
 
                       {buildingsData[selectedBuilding].capacity && (
                         <div className="flex items-center gap-3 text-sm">
-                          <Users className="w-4 h-4 text-blue-600" />
+                          <Users className="w-4 h-4 text-[#B11317]" />
                           <span>
                             <strong>Capacity:</strong> {buildingsData[selectedBuilding].capacity}
                           </span>
