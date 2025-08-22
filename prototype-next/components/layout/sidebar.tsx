@@ -32,7 +32,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     login({
       name: "John Doe",
       email: "john.doe@thapar.edu",
-      avatar: "/placeholder.svg?height=40&width=40",
+      avatar: "/place.svg?height=40&width=40",
     })
   }
 
@@ -54,7 +54,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           {/* Profile Section */}
           <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
             <Avatar className="w-10 h-10">
-              <AvatarImage src={user?.avatar || "/placeholder.svg?height=40&width=40"} />
+              <AvatarImage src={user?.avatar || "/place.svg?height=40&width=40"} />
               <AvatarFallback className="bg-blue-100 text-blue-700">
                 {isGuest
                   ? "G"
@@ -136,7 +136,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           {/* Profile Section */}
           <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
             <Avatar className="w-10 h-10">
-              <AvatarImage src={user?.avatar || "/placeholder.svg?height=40&width=40"} />
+              <AvatarImage src={user?.avatar || "/place.svg?height=40&width=40"} />
               <AvatarFallback className="bg-blue-100 text-blue-700">
                 {isGuest
                   ? "G"
