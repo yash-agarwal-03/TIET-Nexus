@@ -15,8 +15,12 @@ export function MobileHeader({ onMenuClick }: MobileHeaderProps) {
       </Button>
 
       <div className="flex items-center gap-3">
-  <div className="w-8 h-8 bg-[#B11317] rounded-lg flex items-center justify-center">
-          <span className="text-white font-bold text-sm">T</span>
+        <div className="w-10 h-10 rounded-lg overflow-hidden bg-white flex items-center justify-center">
+          <img
+            src="/logos/tiet.png"
+            alt="Thapar Institute Logo"
+            className="object-cover w-full h-full"
+          />
         </div>
         <span className="text-xl font-bold text-gray-900">TIET Nexus</span>
       </div>

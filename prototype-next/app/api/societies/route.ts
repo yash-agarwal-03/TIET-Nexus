@@ -3,9 +3,9 @@ import { NextResponse } from "next/server"
 // Sample data - In a real application, this would come from a database
 const societies = [
   {
-    logo: "/society-logos/1.png",
+  logo: "/logos/ccs.png",
     id: "1",
-    name: "Creative Computing Society ( CCS )",
+    name: "Creative Computing Society (CCS)",
     shortDescription:
       "Creative Computing Society is an elite technical society with the vision to help students achieve hands on experience in technical experience",
     fullDescription:
@@ -88,7 +88,7 @@ const societies = [
     ],
   },
   {
-    logo: "/society-logos/2.png",
+  logo: "/logos/mlsc.png",
     id: "2",
     name: "Microsoft Student Chapter (MLSC)",
     shortDescription:
@@ -168,7 +168,7 @@ const societies = [
     ],
   },
   {
-    logo: "/society-logos/3.png",
+  logo: "/logos/edc.png",
     id: "3",
     name: "Thapar Venture Club (Formerly EDC)",
     shortDescription:
@@ -247,7 +247,7 @@ const societies = [
     ],
   },
   {
-    logo: "/society-logos/4.png",
+  logo: "/logos/faps.jpg",
     id: "4",
     name: "Fine Arts & Photography Society (FAPS)",
     shortDescription:
@@ -319,7 +319,7 @@ const societies = [
     ],
   },
   {
-    logo: "/society-logos/5.png",
+  logo: "/logos/taas.jpeg",
     id: "5",
     name: "Thapar Amateur Astronomers Society (TAAS)",
     shortDescription:
@@ -396,7 +396,7 @@ const societies = [
     ],
   },
   {
-    logo: "/society-logos/6.png",
+  logo: "/logos/mudra.jpeg",
     id: "6",
     name: "Music and Dramatic Society (MUDRA)",
     shortDescription:

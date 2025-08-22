@@ -110,8 +110,8 @@ export function ExplorePage() {
               onClick={() => handleCardClick(society)}
             >
               {/* Logo at top right */}
-              <div className="absolute top-4 right-4">
-                <div className="w-14 h-14 rounded-full overflow-hidden shadow-lg bg-white flex items-center justify-center">
+              <div className="absolute top-4 right-6">
+                <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg bg-white flex items-center justify-center">
                   <img
                     src={society.logo}
                     alt={society.name + ' logo'}
@@ -162,7 +162,7 @@ export function ExplorePage() {
                 </div>
                 {/* Category badge at bottom right */}
                 <div className="absolute bottom-4 right-4">
-                  <span className="bg-[#B11317] text-white px-4 py-1 rounded-full text-lg font-semibold shadow-md">{society.category}</span>
+                  <span className="bg-red-200 text-[#B11317] px-4 py-1 rounded-full text-lg font-semibold shadow-md">{society.category}</span>
                 </div>
               </CardContent>
             </Card>
@@ -172,6 +172,9 @@ export function ExplorePage() {
         {/* Detailed Modal */}
         <Dialog open={isModalOpen} onOpenChange={closeModal}>
           <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+            <style>{`
+              .[data-state="open"] > button.absolute.right-4.top-4 svg { width: 2.25rem; height: 2.25rem; }
+            `}</style>
             {selectedSociety && (
               <>
                 <DialogHeader className="pb-2">
@@ -192,8 +195,8 @@ export function ExplorePage() {
                         {selectedSociety.category}
                       </Badge>
                     </div>
-                    <div className="flex-shrink-0 flex items-end mt-4 sm:mt-0">
-                      <div className="w-14 h-14 sm:w-16 sm:h-20 rounded-lg overflow-hidden shadow-lg bg-white flex items-center justify-center">
+                    <div className="flex-shrink-0 flex items-end mt-4 sm:mt-0 mr-2 sm:mr-4">
+                      <div className="w-24 h-28 sm:w-28 sm:h-32 rounded-lg overflow-hidden shadow-lg bg-white flex items-center justify-center">
                         <img
                           src={selectedSociety.logo}
                           alt={selectedSociety.name + ' logo'}

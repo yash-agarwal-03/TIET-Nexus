@@ -14,8 +14,12 @@ export function WelcomePage() {
           <div className="text-center">
             {/* College Logo */}
             <div className="flex justify-center mb-8">
-              <div className="w-24 h-24 bg-[#B11317] rounded-full flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-3xl">TIET</span>
+              <div className="w-24 h-24 rounded-full overflow-hidden shadow-lg bg-white flex items-center justify-center">
+                <img
+                  src="/logos/tiet.png"
+                  alt="Thapar Institute Logo"
+                  className="object-cover w-full h-full rounded-full"
+                />
               </div>
             </div>
 
@@ -103,12 +107,38 @@ export function WelcomePage() {
                 <Link href="/contact">Learn More</Link>
               </Button>
             </div>
-            <div className="bg-gradient-to-br from-red-100 to-red-200 rounded-lg p-8 text-center">
-              <div className="w-32 h-32 bg-[#B11317] rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-white font-bold text-4xl">TIET</span>
+            <div className="relative rounded-lg overflow-hidden flex flex-col items-center justify-center min-h-[260px]" style={{ minHeight: '260px', minWidth: '100%' }}>
+              {/* Base image */}
+              <img
+                src="/logos/tiet-base.jpg"
+                alt="Thapar Institute Campus"
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ zIndex: 1 }}
+              />
+              {/* Glass overlay */}
+              <div
+                className="absolute inset-0 w-full h-full flex flex-col items-center justify-center"
+                style={{
+                  background: 'rgba(255,255,255,0.18)',
+                  boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.18)',
+                  backdropFilter: 'blur(1.5px)',
+                  WebkitBackdropFilter: 'blur(1.5px)',
+                  zIndex: 2,
+                  borderRadius: 'inherit',
+                  border: '1.5px solid rgba(255,255,255,0.25)',
+                }}
+              >
+                {/* Large horizontal logo on glass */}
+                <div className="w-56 h-20 rounded-xl overflow-hidden shadow-xl bg-white/90 flex items-center justify-center mb-6 mt-2 border border-white/60" style={{maxWidth:'90vw'}}>
+                  <img
+                    src="/logos/tiet_transparent.png"
+                    alt="TIET Logo"
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]" style={{ zIndex: 3 }}>Est. 1956</h3>
+                <p className="text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]" style={{ zIndex: 3 }}>67+ Years of Excellence</p>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Est. 1956</h3>
-              <p className="text-gray-600">67+ Years of Excellence</p>
             </div>
           </div>
         </div>
