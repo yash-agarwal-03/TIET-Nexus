@@ -111,7 +111,7 @@ export function ExplorePage() {
             >
               {/* Logo at top right */}
               <div className="absolute top-4 right-4">
-                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#B11317] bg-white flex items-center justify-center">
+                <div className="w-14 h-14 rounded-full overflow-hidden shadow-lg bg-white flex items-center justify-center">
                   <img
                     src={society.logo}
                     alt={society.name + ' logo'}
@@ -174,15 +174,32 @@ export function ExplorePage() {
           <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
             {selectedSociety && (
               <>
-                <DialogHeader className="pb-6">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <DialogTitle className="text-2xl font-bold text-gray-900 mb-2">
-                        {selectedSociety.name}
+                <DialogHeader className="pb-2">
+                  <div
+                    className="flex flex-row flex-wrap items-end gap-4 min-h-[80px] sm:gap-6"
+                  >
+                    {/* Name and logo side by side, logo right-aligned */}
+                    <div className="flex-1 min-w-0 flex flex-col justify-end">
+                      <DialogTitle
+                        className="font-bold text-gray-900 leading-tight mb-0 break-words text-2xl sm:text-3xl md:text-4xl"
+                        style={{ minHeight: '48px', display: 'flex', alignItems: 'flex-end', wordBreak: 'break-word', lineHeight: 1.1 }}
+                      >
+                        <span className="block w-full max-w-full whitespace-normal break-words">
+                          {selectedSociety.name}
+                        </span>
                       </DialogTitle>
-                      <Badge variant="secondary" className="mb-4">
+                      <Badge variant="secondary" className="mt-2 text-base sm:text-lg px-3 sm:px-4 py-1 w-fit">
                         {selectedSociety.category}
                       </Badge>
+                    </div>
+                    <div className="flex-shrink-0 flex items-end mt-4 sm:mt-0">
+                      <div className="w-14 h-14 sm:w-16 sm:h-20 rounded-lg overflow-hidden shadow-lg bg-white flex items-center justify-center">
+                        <img
+                          src={selectedSociety.logo}
+                          alt={selectedSociety.name + ' logo'}
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
                     </div>
                   </div>
                 </DialogHeader>

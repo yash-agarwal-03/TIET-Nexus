@@ -100,7 +100,7 @@ const societies = [
     establishedYear: 2010,
     meetingSchedule: "Tuesday & Thursday 6:00 PM",
     location: "Theatre Hall, Arts Building",
-    contactEmail: "drama.club@college.edu",
+    contactEmail: "msc@thapar.edu",
     contactPhone: "+1 (555) 234-5678",
     website: "https://mlsctiet.com/",
     socialMedia: {
@@ -117,19 +117,19 @@ const societies = [
       {
         name: "Prisha Khandari",
         position: "Secretary",
-        email: "ryan.oconnor@college.edu",
+        email: "prisha@college.edu",
         avatar: "/place.svg?height=40&width=40",
       },
       {
         name: "Mankirat Singh",
         position: "Head",
-        email: "james.wilson@college.edu",
+        email: "mankirat@college.edu",
         avatar: "/place.svg?height=40&width=40",
       },
       {
         name: "Krishnam Agarwal",
-        position: "Stage Manager",
-        email: "sophie.turner@college.edu",
+        position: "Secretary",
+        email: "krishnam@college.edu",
         avatar: "/place.svg?height=40&width=40",
       },
       
