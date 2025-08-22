@@ -19,6 +19,7 @@ const navigation = [
   { name: "Campus Map", href: "/map", icon: Map },
   { name: "Thapar AI", href: "/ai", icon: Bot },
   { name: "Feeds", href: "/feeds", icon: Rss },
+  { name: "Lost & Found", href: "http://localhost:3001", icon: Users, external: true },
   { name: "Contact Us", href: "/contact", icon: Phone },
   { name: "Team", href: "/team", icon: Users },
 ]
@@ -90,23 +91,38 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                 <ul role="list" className="-mx-2 space-y-1">
                   {navigation.map((item) => (
                     <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className={cn(
-                          pathname === item.href
-                            ? "bg-red-50 text-[#B11317]"
-                            : "text-gray-700 hover:text-[#B11317] hover:bg-gray-50",
-                          "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold transition-colors",
-                        )}
-                      >
-                        <item.icon
+                      {item.external ? (
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className={cn(
-                            pathname === item.href ? "text-[#B11317]" : "text-gray-400 group-hover:text-[#B11317]",
-                            "h-6 w-6 shrink-0",
+                            "text-gray-700 hover:text-[#B11317] hover:bg-gray-50",
+                            "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold transition-colors",
                           )}
-                        />
-                        {item.name}
-                      </Link>
+                        >
+                          <item.icon className={cn("text-gray-400 group-hover:text-[#B11317]", "h-6 w-6 shrink-0")} />
+                          {item.name}
+                        </a>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className={cn(
+                            pathname === item.href
+                              ? "bg-red-50 text-[#B11317]"
+                              : "text-gray-700 hover:text-[#B11317] hover:bg-gray-50",
+                            "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold transition-colors",
+                          )}
+                        >
+                          <item.icon
+                            className={cn(
+                              pathname === item.href ? "text-[#B11317]" : "text-gray-400 group-hover:text-[#B11317]",
+                              "h-6 w-6 shrink-0",
+                            )}
+                          />
+                          {item.name}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
