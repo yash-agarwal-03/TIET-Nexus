@@ -124,7 +124,7 @@ export function TeamPage() {
                 <CardContent className="p-6 text-center">
                   <Avatar className="w-32 h-32 mx-auto mb-4">
                     <AvatarImage src={member.image || "/place.svg"} />
-                    <AvatarFallback className="text-2xl bg-blue-100 text-blue-700">
+                    <AvatarFallback className="text-2xl bg-red-100 text-[#B11317]">
                       {member.name
                         .split(" ")
                         .map((n) => n[0])
@@ -133,7 +133,7 @@ export function TeamPage() {
                   </Avatar>
 
                   <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-blue-600 font-medium mb-4">{member.role}</p>
+                  <p className="text-[#B11317] font-medium mb-4">{member.role}</p>
 
                   <p className="text-gray-600 text-sm mb-6 leading-relaxed">{member.bio}</p>
 
@@ -173,7 +173,7 @@ export function TeamPage() {
                   <div className="flex items-start gap-4 mb-4">
                     <Avatar className="w-16 h-16">
                       <AvatarImage src={member.image || "/place.svg"} />
-                      <AvatarFallback className="bg-blue-100 text-blue-700">
+                      <AvatarFallback className="bg-red-100 text-[#B11317]">
                         {member.name
                           .split(" ")
                           .map((n) => n[0])
@@ -183,7 +183,7 @@ export function TeamPage() {
 
                     <div className="flex-1">
                       <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
-                      <p className="text-blue-600 font-medium text-sm mb-2">{member.role}</p>
+                      <p className="text-[#B11317] font-medium text-sm mb-2">{member.role}</p>
 
                       {member.skills && (
                         <div className="flex flex-wrap gap-1 mb-3">
@@ -239,7 +239,7 @@ export function TeamPage() {
 
         {/* Project Info */}
         <div className="mt-16 text-center">
-          <Card className="bg-blue-50 border-blue-200">
+          <Card className="bg-red-50 border-red-200">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">About TIET Nexus</h3>
               <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">

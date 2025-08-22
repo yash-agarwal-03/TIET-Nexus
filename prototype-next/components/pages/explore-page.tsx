@@ -77,10 +77,10 @@ export function ExplorePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
+  <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 p-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#B11317] mx-auto"></div>
             <p className="mt-4 text-gray-600">Loading societies...</p>
           </div>
         </div>
@@ -89,7 +89,7 @@ export function ExplorePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
+  <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -136,7 +136,7 @@ export function ExplorePage() {
                       {society.executiveMembers.slice(0, 4).map((member, index) => (
                         <Avatar key={index} className="w-8 h-8 border-2 border-white">
                           <AvatarImage src={member.avatar || "/place.svg"} />
-                          <AvatarFallback className="text-xs bg-blue-100 text-blue-700">
+                          <AvatarFallback className="text-xs bg-red-100 text-[#B11317]">
                             {member.name
                               .split(" ")
                               .map((n) => n[0])
@@ -188,35 +188,35 @@ export function ExplorePage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-3">
                       <div className="flex items-center gap-3">
-                        <Users className="w-5 h-5 text-blue-600" />
+                        <Users className="w-5 h-5 text-[#B11317]" />
                         <span>
                           <strong>{selectedSociety.memberCount}</strong> active members
                         </span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <Calendar className="w-5 h-5 text-blue-600" />
+                        <Calendar className="w-5 h-5 text-[#B11317]" />
                         <span>
                           Established in <strong>{selectedSociety.establishedYear}</strong>
                         </span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <MapPin className="w-5 h-5 text-blue-600" />
+                        <MapPin className="w-5 h-5 text-[#B11317]" />
                         <span>{selectedSociety.location}</span>
                       </div>
                     </div>
                     <div className="space-y-3">
                       <div className="flex items-center gap-3">
-                        <Mail className="w-5 h-5 text-blue-600" />
+                        <Mail className="w-5 h-5 text-[#B11317]" />
                         <span>{selectedSociety.contactEmail}</span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <Phone className="w-5 h-5 text-blue-600" />
+                        <Phone className="w-5 h-5 text-[#B11317]" />
                         <span>{selectedSociety.contactPhone}</span>
                       </div>
                       {selectedSociety.website && (
                         <div className="flex items-center gap-3">
-                          <Globe className="w-5 h-5 text-blue-600" />
-                          <a href={selectedSociety.website} className="text-blue-600 hover:underline">
+                          <Globe className="w-5 h-5 text-[#B11317]" />
+                          <a href={selectedSociety.website} className="text-[#B11317] hover:underline">
                             Visit Website
                           </a>
                         </div>
@@ -234,7 +234,7 @@ export function ExplorePage() {
                         <div key={index} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                           <Avatar className="w-12 h-12">
                             <AvatarImage src={member.avatar || "/place.svg"} />
-                            <AvatarFallback className="bg-blue-100 text-blue-700">
+                            <AvatarFallback className="bg-red-100 text-[#B11317]">
                               {member.name
                                 .split(" ")
                                 .map((n) => n[0])
@@ -260,7 +260,7 @@ export function ExplorePage() {
                       <ul className="space-y-2">
                         {selectedSociety.activities.map((activity, index) => (
                           <li key={index} className="flex items-start gap-2">
-                            <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 shrink-0"></div>
+                            <div className="w-2 h-2 bg-[#B11317] rounded-full mt-2 shrink-0"></div>
                             <span className="text-gray-600">{activity}</span>
                           </li>
                         ))}
@@ -286,7 +286,7 @@ export function ExplorePage() {
                     <h3 className="text-lg font-semibold mb-4">Upcoming Events</h3>
                     <div className="space-y-3">
                       {selectedSociety.upcomingEvents.map((event, index) => (
-                        <div key={index} className="p-4 bg-blue-50 rounded-lg">
+                        <div key={index} className="p-4 bg-red-50 rounded-lg">
                           <h4 className="font-medium text-gray-900">{event.name}</h4>
                           <div className="flex items-center gap-4 mt-2 text-sm text-gray-600">
                             <span className="flex items-center gap-1">
@@ -323,7 +323,7 @@ export function ExplorePage() {
                         </Button>
                       )}
                     </div>
-                    <Button className="bg-blue-600 hover:bg-blue-700">Join Society</Button>
+                    <Button className="bg-[#B11317] hover:bg-red-800">Join Society</Button>
                   </div>
                 </div>
               </>
