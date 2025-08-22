@@ -4,52 +4,52 @@ import { NextResponse } from "next/server"
 const societies = [
   {
     id: "1",
-    name: "Computer Science Society",
+    name: "Creative Computing Society ( CCS )",
     shortDescription:
-      "Fostering innovation in technology and programming through workshops, hackathons, and coding competitions.",
+      "Creative Computing Society is an elite technical society with the vision to help students achieve hands on experience in technical experience",
     fullDescription:
-      "The Computer Science Society is dedicated to bringing together students passionate about technology, programming, and innovation. We organize regular workshops on cutting-edge technologies, host hackathons, participate in coding competitions, and provide a platform for students to collaborate on exciting projects. Whether you're a beginner or an expert, our society welcomes all skill levels and provides opportunities for growth and learning.",
-    category: "Academic",
+      "Creative Computing Society strive to encourage students to develop an analytical temperament in the field of technology and innovation. The society conducts workshops and coding competitions on a regular basis, thus acting as a platform for students to showcase and nurture their technical skill to discover their best lying potential. Over the years the society has had numerous pivotal collaborations with organizations like Google Developers Group, Women Techmaker, Mozilla Webmaker, PyData to name a few.",
+    category: "Technical",
     memberCount: 245,
-    establishedYear: 2015,
+    establishedYear: 2004,
     meetingSchedule: "Every Friday 4:00 PM",
     location: "Computer Lab, Building A",
-    contactEmail: "cs.society@college.edu",
+    contactEmail: "ccs@thapar.edu",
     contactPhone: "+1 (555) 123-4567",
-    website: "https://cs-society.college.edu",
+    website: "www.ccstiet.com",
     socialMedia: {
-      instagram: "https://instagram.com/cs_society",
-      twitter: "https://twitter.com/cs_society",
+      instagram: "https://www.instagram.com/ccs_tiet/",
+      github: "https://twitter.com/cs_society",
     },
     executiveMembers: [
       {
-        name: "Alex Johnson",
+        name: "Dr. Anju Bala",
         position: "President",
-        email: "alex.johnson@college.edu",
+        email: "anjubala@thapar.edu",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       {
-        name: "Sarah Chen",
+        name: "Dr. Gurpal Singh",
         position: "Vice President",
-        email: "sarah.chen@college.edu",
+        email: "gurpal.singh@thapar.edu",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       {
-        name: "Michael Rodriguez",
-        position: "Technical Lead",
-        email: "michael.rodriguez@college.edu",
+        name: "Sarthak Tyagi",
+        position: "General Secretary",
+        email: "sarthak@tietexample.com",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       {
-        name: "Emily Davis",
-        position: "Event Coordinator",
-        email: "emily.davis@college.edu",
+        name: "Kanav Dhanda",
+        position: "Finance Secretary",
+        email: "kanav@tietexample.com",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       {
-        name: "David Kim",
-        position: "Treasurer",
-        email: "david.kim@college.edu",
+        name: "Aayush Goyal",
+        position: "Joint Secretary",
+        email: "aayush@tietexample.com",
         avatar: "/placeholder.svg?height=40&width=40",
       },
     ],
@@ -88,47 +88,49 @@ const societies = [
   },
   {
     id: "2",
-    name: "Drama & Theatre Club",
+    name: "Microsoft Student Chapter (MLSC)",
     shortDescription:
-      "Bringing stories to life through passionate performances, creative workshops, and theatrical productions.",
+      "The aim of MLSC is to provide guidance, technical trainings, project guidance that improve students knowledge and learning skills.",
     fullDescription:
-      "The Drama & Theatre Club is a vibrant community of storytellers, actors, directors, and theatre enthusiasts. We believe in the power of performance to inspire, educate, and entertain. Our club produces multiple shows throughout the year, ranging from classical plays to contemporary works and original student productions. We also offer acting workshops, script writing sessions, and technical theatre training.",
-    category: "Arts",
+      "We at Microsoft Learn Student Chapter believe that youth encompassed with appropriate technology holds the potential to revolutionize the world we perceive today and we have done a fair share in that through multiple events organised over the years. Microsoft Learn Student Chapter was institutionalized by the virtue of providing students a systemic platform for cultivating technical skills and a spirit of teamwork. Our vision is to create a community of computer enthusiasts with a mindset of development.",
+    category: "Technical",
     memberCount: 89,
     establishedYear: 2010,
     meetingSchedule: "Tuesday & Thursday 6:00 PM",
     location: "Theatre Hall, Arts Building",
     contactEmail: "drama.club@college.edu",
     contactPhone: "+1 (555) 234-5678",
+    website: "https://mlsctiet.com/",
     socialMedia: {
       instagram: "https://instagram.com/drama_club",
       twitter: "https://twitter.com/drama_club",
     },
     executiveMembers: [
       {
-        name: "Isabella Martinez",
-        position: "Director",
-        email: "isabella.martinez@college.edu",
+        name: "Dr. Prashant Singh Rana",
+        position: "president",
+        email: "prashant.singh@thapar.edu",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       {
-        name: "James Wilson",
-        position: "Assistant Director",
+        name: "Prisha Khandari",
+        position: "Secretary",
+        email: "ryan.oconnor@college.edu",
+        avatar: "/placeholder.svg?height=40&width=40",
+      },
+      {
+        name: "Mankirat Singh",
+        position: "Head",
         email: "james.wilson@college.edu",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       {
-        name: "Sophie Turner",
+        name: "Krishnam Agarwal",
         position: "Stage Manager",
         email: "sophie.turner@college.edu",
         avatar: "/placeholder.svg?height=40&width=40",
       },
-      {
-        name: "Ryan O'Connor",
-        position: "Technical Director",
-        email: "ryan.oconnor@college.edu",
-        avatar: "/placeholder.svg?height=40&width=40",
-      },
+      
     ],
     activities: [
       "Bi-annual major theatrical productions",
@@ -165,14 +167,14 @@ const societies = [
   },
   {
     id: "3",
-    name: "Environmental Action Society",
+    name: "Thapar Venture Club (Formerly EDC)",
     shortDescription:
-      "Promoting sustainability and environmental awareness through campus initiatives and community outreach.",
+      "EDC is an initiative under Thapar University to promote and stimulate innovative ideas in technical field to incubate Entrepreneurs of tomorrow. If you have an idea, they should be the ones you should approach",
     fullDescription:
-      "The Environmental Action Society is committed to creating a more sustainable future through education, advocacy, and direct action. We work on campus sustainability projects, organize environmental awareness campaigns, and participate in community conservation efforts. Our members are passionate about addressing climate change, promoting renewable energy, and protecting natural ecosystems.",
-    category: "Social Impact",
-    memberCount: 156,
-    establishedYear: 2012,
+      "Thapar Venture Club (TVC)—formerly known as the Entrepreneurship Development Cell (EDC, TIET)—is the driving force behind entrepreneurial innovation at Thapar University.Through high-impact events, venture-building initiatives, and a dynamic support network, TVC has been instrumental in igniting the spirit of entrepreneurship on campus. As we evolve, our mission remains stronger than ever: to nurture a community of bold thinkers, innovators, and changemakers ready to shape the future.",
+    category: "Entrepreneurship",
+    memberCount: 209,
+    establishedYear: 2014,
     meetingSchedule: "Every Wednesday 5:30 PM",
     location: "Environmental Science Building",
     contactEmail: "environmental@college.edu",
@@ -180,19 +182,19 @@ const societies = [
     website: "https://environmental.college.edu",
     socialMedia: {
       instagram: "https://instagram.com/env_action",
-      twitter: "https://twitter.com/env_action",
+      linkedin: "https://www.linkedin.com/school/thaparventureclub/about/",
     },
     executiveMembers: [
       {
-        name: "Maya Patel",
+        name: "Dr. M.D. Singh",
         position: "President",
-        email: "maya.patel@college.edu",
+        email: "mdsingh@thapar.edu",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       {
-        name: "Lucas Thompson",
+        name: "Dr. Vineet Srivastava",
         position: "Vice President",
-        email: "lucas.thompson@college.edu",
+        email: "vineet.srivastava@thapar.edu",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       {
@@ -243,7 +245,7 @@ const societies = [
   },
   {
     id: "4",
-    name: "Photography Club",
+    name: "Fine Arts & Photography",
     shortDescription:
       "Capturing moments and developing artistic vision through photography workshops, exhibitions, and photo walks.",
     fullDescription:
@@ -253,7 +255,7 @@ const societies = [
     establishedYear: 2018,
     meetingSchedule: "Every Saturday 2:00 PM",
     location: "Art Studio, Creative Arts Building",
-    contactEmail: "photo.club@college.edu",
+    contactEmail: "faps@thapar.edu",
     contactPhone: "+1 (555) 456-7890",
     socialMedia: {
       instagram: "https://instagram.com/photo_club",
@@ -261,15 +263,15 @@ const societies = [
     },
     executiveMembers: [
       {
-        name: "Aiden Foster",
+        name: "Dr. Ashima Singh",
         position: "President",
-        email: "aiden.foster@college.edu",
+        email: "ashima@thapar.edu",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       {
-        name: "Lily Zhang",
-        position: "Workshop Coordinator",
-        email: "lily.zhang@college.edu",
+        name: "Dr. Vikas Sharma",
+        position: "Vice President",
+        email: "vikas.sharma@thapar.edu",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       {
@@ -314,12 +316,12 @@ const societies = [
   },
   {
     id: "5",
-    name: "Debate Society",
+    name: "Thapar Amateur Astronomers Society (TAAS)",
     shortDescription:
-      "Developing critical thinking and public speaking skills through competitive debates and discussion forums.",
+      "Explore The Cosmos with Science and Engineering.\nA students' club dedicated to the love of space and astronomy.",
     fullDescription:
-      "The Debate Society is dedicated to fostering critical thinking, research skills, and eloquent public speaking among students. We participate in intercollegiate debate competitions, host weekly practice sessions, and organize public forums on current issues. Our members learn various debate formats including parliamentary, policy, and public forum debates while building confidence in articulating their thoughts.",
-    category: "Academic",
+      "TAAS explores the cosmos with science and engineering with the objective of cultivating scientific temperament, nourishing inquisitive young minds and encouraging innovation in those who do not get a chance in the daily load of the engineering course. This society creates a platform for students who are interested in applying their knowledge and skills in the field of Astronomy and opens up opportunities for students willing to work as professionals in the subject.",
+    category: "Astronomy",
     memberCount: 67,
     establishedYear: 2008,
     meetingSchedule: "Monday & Friday 7:00 PM",
@@ -331,20 +333,26 @@ const societies = [
     },
     executiveMembers: [
       {
-        name: "Victoria Chang",
+        name: "Dr. Debabrata Deb",
         position: "President",
         email: "victoria.chang@college.edu",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       {
-        name: "Benjamin Clark",
+        name: "Dr. Mamta Gulati",
         position: "Vice President",
         email: "benjamin.clark@college.edu",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       {
-        name: "Priya Sharma",
-        position: "Tournament Director",
+        name: "Saksham  ",
+        position: "General Secretary",
+        email: "priya.sharma@college.edu",
+        avatar: "/placeholder.svg?height=40&width=40",
+      },
+      {
+        name: "Aarushi Kapoor ",
+        position: "Event Management Head",
         email: "priya.sharma@college.edu",
         avatar: "/placeholder.svg?height=40&width=40",
       },
@@ -384,7 +392,7 @@ const societies = [
   },
   {
     id: "6",
-    name: "Music Society",
+    name: "Music and Dramatic Society (MUDRA)",
     shortDescription:
       "Creating harmony through diverse musical performances, jam sessions, and collaborative compositions.",
     fullDescription:
