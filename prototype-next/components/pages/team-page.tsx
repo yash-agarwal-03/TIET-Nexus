@@ -27,7 +27,7 @@ const teamMembers: TeamMember[] = [
     name: "Dr. Ashima Singh",
     role: "Project Mentor",
     type: "supervisor",
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/place.svg?height=200&width=200",
     bio: "Professor of Computer Science with 15+ years of experience in software engineering and student mentorship. Passionate about innovative educational technologies.",
     email: "ashima@thapar.edu",
     linkedin: "https://linkedin.com/in/rajeshkumar",
@@ -37,7 +37,7 @@ const teamMembers: TeamMember[] = [
     name: "Dr. Jaskeerat Singh",
     role: "Project Co-Mentor",
     type: "supervisor",
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/place.svg?height=200&width=200",
     bio: "Associate Professor specializing in web technologies and database systems. Guides students in building scalable and efficient applications.",
     email: "jaskeerat@thapar.edu",
     linkedin: "https://linkedin.com/in/priyasharma",
@@ -46,9 +46,9 @@ const teamMembers: TeamMember[] = [
   {
     id: "3",
     name: "Yash Agarwal",
-    role: "Full Stack Developer & Team Lead",
+    role: "Team Lead, Full Stack Developer & Map Designer ",
     type: "developer",
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/placeholders.svg?height=200&width=200",
     bio: "Final year CSE student passionate about creating seamless user experiences. Leads the development team and specializes in React and Node.js.",
     skills: ["React", "Node.js", "TypeScript", "MongoDB", "Backend Architecture"],
     email: "arjun.singh@student.thapar.edu",
@@ -61,7 +61,7 @@ const teamMembers: TeamMember[] = [
     name: "Geetansh Mohindru",
     role: "Frontend Developer & UI/UX Designer",
     type: "developer",
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/placeholders.svg?height=200&width=200",
     bio: "Creative developer with an eye for design. Focuses on creating intuitive interfaces and ensuring excellent user experience across all platforms.",
     skills: ["React", "Next.js", "Tailwind CSS", "Figma", "Adobe XD"],
     email: "sneha.patel@student.thapar.edu",
@@ -72,9 +72,9 @@ const teamMembers: TeamMember[] = [
   {
     id: "5",
     name: "Jyotansh Mohindru",
-    role: "Backend Developer",
+    role: "Backend Developer & Map Designer",
     type: "developer",
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/placeholdesr.svg?height=200&width=200",
     bio: "Backend enthusiast who loves building robust APIs and managing databases. Ensures the application runs smoothly and securely behind the scenes.",
     skills: ["Node.js", "Express", "PostgreSQL", "Redis", "Docker"],
     email: "rohit.kumar@student.thapar.edu",
@@ -86,8 +86,8 @@ const teamMembers: TeamMember[] = [
     name: "Arnav Sen",
     role: "Chatbot designer",
     type: "developer",
-    image: "/placeholder.svg?height=200&width=200",
-    bio: "Mobile development specialist ensuring the platform works seamlessly across all devices. Also handles quality assurance and testing.",
+    image: "/placeholsder.svg?height=200&width=200",
+    bio: "Chatbot Developer who builds practical conversational agents to process user requests and execute automated workflows.",
     skills: ["React Native", "Flutter", "Jest", "Cypress", "Firebase"],
     email: "ananya.gupta@student.thapar.edu",
     linkedin: "https://linkedin.com/in/ananyagupta",
@@ -123,7 +123,7 @@ export function TeamPage() {
               <Card key={member.id} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-6 text-center">
                   <Avatar className="w-32 h-32 mx-auto mb-4">
-                    <AvatarImage src={member.image || "/placeholder.svg"} />
+                    <AvatarImage src={member.image || "/place.svg"} />
                     <AvatarFallback className="text-2xl bg-blue-100 text-blue-700">
                       {member.name
                         .split(" ")
@@ -172,7 +172,7 @@ export function TeamPage() {
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4 mb-4">
                     <Avatar className="w-16 h-16">
-                      <AvatarImage src={member.image || "/placeholder.svg"} />
+                      <AvatarImage src={member.image || "/place.svg"} />
                       <AvatarFallback className="bg-blue-100 text-blue-700">
                         {member.name
                           .split(" ")
@@ -259,7 +259,7 @@ export function TeamPage() {
                   Node.js
                 </Badge>
                 <Badge variant="outline" className="px-3 py-1">
-                  TypeScript
+                  MongoDB
                 </Badge>
               </div>
             </CardContent>

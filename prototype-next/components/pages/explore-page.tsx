@@ -135,7 +135,7 @@ export function ExplorePage() {
                     <div className="flex -space-x-2">
                       {society.executiveMembers.slice(0, 4).map((member, index) => (
                         <Avatar key={index} className="w-8 h-8 border-2 border-white">
-                          <AvatarImage src={member.avatar || "/placeholder.svg"} />
+                          <AvatarImage src={member.avatar || "/place.svg"} />
                           <AvatarFallback className="text-xs bg-blue-100 text-blue-700">
                             {member.name
                               .split(" ")
@@ -233,7 +233,7 @@ export function ExplorePage() {
                       {selectedSociety.executiveMembers.map((member, index) => (
                         <div key={index} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                           <Avatar className="w-12 h-12">
-                            <AvatarImage src={member.avatar || "/placeholder.svg"} />
+                            <AvatarImage src={member.avatar || "/place.svg"} />
                             <AvatarFallback className="bg-blue-100 text-blue-700">
                               {member.name
                                 .split(" ")
