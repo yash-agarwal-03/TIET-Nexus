@@ -29,6 +29,7 @@ interface Society {
   contactEmail: string
   contactPhone: string
   website?: string
+  logo: string
   socialMedia: {
     instagram?: string
     twitter?: string
@@ -105,20 +106,27 @@ export function ExplorePage() {
           {societies.map((society) => (
             <Card
               key={society.id}
-              className="cursor-pointer hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white/80 backdrop-blur-sm border-0 shadow-md"
+              className="relative cursor-pointer hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white/80 backdrop-blur-sm border-0 shadow-md"
               onClick={() => handleCardClick(society)}
             >
+              {/* Logo at top right */}
+              <div className="absolute top-4 right-4">
+                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#B11317] bg-white flex items-center justify-center">
+                  <img
+                    src={society.logo}
+                    alt={society.name + ' logo'}
+                    className="object-cover w-full h-full rounded-full"
+                  />
+                </div>
+              </div>
               <CardHeader className="pb-3">
-                <div className="flex justify-between items-start mb-2">
-                  <CardTitle className="text-xl font-bold text-gray-900 line-clamp-2">{society.name}</CardTitle>
-                  <Badge variant="secondary" className="ml-2 shrink-0">
-                    {society.category}
-                  </Badge>
+                <div className="flex items-start mb-2">
+                  <CardTitle className="text-xl font-bold text-gray-900 line-clamp-2 pr-16">{society.name}</CardTitle>
                 </div>
                 <p className="text-gray-600 text-sm line-clamp-3">{society.shortDescription}</p>
               </CardHeader>
 
-              <CardContent className="pt-0">
+              <CardContent className="pt-0 pb-12">
                 <div className="space-y-3">
                   <div className="flex items-center gap-2 text-sm text-gray-500">
                     <Users className="w-4 h-4" />
@@ -151,6 +159,10 @@ export function ExplorePage() {
                       )}
                     </div>
                   </div>
+                </div>
+                {/* Category badge at bottom right */}
+                <div className="absolute bottom-4 right-4">
+                  <span className="bg-[#B11317] text-white px-4 py-1 rounded-full text-lg font-semibold shadow-md">{society.category}</span>
                 </div>
               </CardContent>
             </Card>
