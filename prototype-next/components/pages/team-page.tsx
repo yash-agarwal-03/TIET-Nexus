@@ -34,12 +34,12 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "2",
-    name: "Dr. Jaskeerat Singh",
+    name: "Dr. Jaskirat Singh",
     role: "Project Co-Mentor",
     type: "supervisor",
     image: "/place.svg?height=200&width=200",
     bio: "Associate Professor specializing in web technologies and database systems. Guides students in building scalable and efficient applications.",
-    email: "jaskeerat@thapar.edu",
+    email: "jaskirat@thapar.edu",
     linkedin: "https://linkedin.com/in/priyasharma",
   },
   // Developers

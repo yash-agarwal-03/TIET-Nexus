@@ -19,7 +19,7 @@ const navigation = [
   { name: "Campus Map", href: "/map", icon: Map },
   { name: "Thapar AI", href: "/ai", icon: Bot },
   { name: "Feeds", href: "/feeds", icon: Rss },
-  { name: "Lost & Found", href: "http://localhost:3001", icon: Users, external: true },
+  { name: "Lost & Found", href: "http://localhost:3001", icon: Users },
   { name: "Contact Us", href: "/contact", icon: Phone },
   { name: "Team", href: "/team", icon: Users },
 ]
@@ -91,7 +91,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                 <ul role="list" className="-mx-2 space-y-1">
                   {navigation.map((item) => (
                     <li key={item.name}>
-                      {item.external ? (
+                      {item.href.startsWith('http') ? (
                         <a
                           href={item.href}
                           target="_blank"
