@@ -19,7 +19,7 @@ const navigation = [
   { name: "Campus Map", href: "/map", icon: Map },
   { name: "Thapar AI", href: "/ai", icon: Bot },
   { name: "Feeds", href: "/feeds", icon: Rss },
-  { name: "Lost & Found", href: "http://localhost:3001", icon: Users, external: true },
+  { name: "Lost & Found", href: "http://localhost:3000", icon: Users, external: true },
   { name: "Contact Us", href: "/contact", icon: Phone },
   { name: "Team", href: "/team", icon: Users },
 ]
