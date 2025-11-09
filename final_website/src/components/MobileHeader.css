@@ -1,0 +1,68 @@
+.mobile-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 60px;
+}
+
+.mobile-title {
+  margin: 0 0 0 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.hamburger-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.hamburger-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.menu-icon {
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+.menu-icon.open {
+  transform: scale(0.9);
+}
+
+.hamburger-btn.active .menu-icon line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-btn.active .menu-icon line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active .menu-icon line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.hamburger-btn .menu-icon line {
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+@media (min-width: 769px) {
+  .mobile-header {
+    display: none;
+  }
+}

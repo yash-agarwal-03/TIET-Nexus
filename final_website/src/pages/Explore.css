@@ -1,0 +1,127 @@
+.grid-3 {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  padding: 20px;
+}
+
+.society-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.society-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.society-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  padding-right: 96px; /* Space for logo */
+}
+
+.society-card p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.meta-row {
+  display: flex;
+  gap: 16px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  background: #f3f4f6;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.pill {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: #f3f4f6;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #4b5563;
+  font-weight: 600;
+}
+
+.society-logo {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  background: #fff;
+  border: 2px solid rgba(255,255,255,0.8);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .grid-3 {
+    padding: 12px;
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+
+  .society-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .society-card h3 {
+    font-size: 1.1rem;
+    padding-right: 80px;
+    margin-bottom: 8px;
+  }
+
+  .pill {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .society-logo {
+    top: 12px;
+    right: 12px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .meta-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}

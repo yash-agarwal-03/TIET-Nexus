@@ -1,0 +1,91 @@
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  background: white;
+  z-index: 1001;
+  transition: transform 0.3s ease;
+  box-shadow: 1px 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 250px;
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .sidebar-container {
+    display: none; /* Hide desktop sidebar on mobile */
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding-top: 60px; /* Account for mobile header */
+  }
+}
+
+/* Prevent body scroll when mobile menu is open */
+.app-shell.menu-open {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Tablet optimization */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sidebar-container {
+    width: 220px;
+  }
+
+  .main-content {
+    margin-left: 220px;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sidebar-container {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 200px;
+  }
+}
+
+/* Ensure content is fluid */
+.grid-3 {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure text containers are fluid */
+p, h1, h2, h3, h4, h5, h6 {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Responsive table handling */
+table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}

@@ -28,16 +28,16 @@ export default function Welcome() {
 
       <div className="grid-4">
         {[
-          { icon: '👥', title: 'Explore Societies', text: 'Discover clubs and societies that match your interests' },
-          { icon: '🗺️', title: 'Campus Map', text: 'Navigate the campus with our interactive map' },
-          { icon: '🤖', title: 'Thapar AI', text: 'Get instant answers to your campus questions' },
-          { icon: '📡', title: 'Campus Feeds', text: 'Stay updated with the latest campus news' }
+          { icon: '👥', title: 'Explore Societies', text: 'Discover clubs and societies that match your interests', path: '/explore' },
+          { icon: '🗺️', title: 'Campus Map', text: 'Navigate the campus with our interactive map', path: '/campus-map' },
+          { icon: '🤖', title: 'Thapar AI', text: 'Get instant answers to your campus questions', path: '/thapar-ai' },
+          { icon: '📡', title: 'Campus Feeds', text: 'Stay updated with the latest campus news', path: '/feeds' }
         ].map((f) => (
-          <div key={f.title} className="card feature-card">
+          <Link key={f.title} to={f.path} className="card feature-card">
             <div className="feature-icon">{f.icon}</div>
             <div style={{ fontWeight: 700 }}>{f.title}</div>
             <div style={{ color: 'var(--muted)' }}>{f.text}</div>
-          </div>
+          </Link>
         ))}
       </div>
 

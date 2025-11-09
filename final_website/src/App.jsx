@@ -9,6 +9,7 @@ import Feeds from './pages/Feeds.jsx';
 import LostAndFound from './pages/LostAndFound.jsx';
 import Contact from './pages/Contact.jsx';
 import Team from './pages/Team.jsx';
+import AdminProfile from './pages/AdminProfile.jsx';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/lost-and-found" element={<LostAndFound />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/team" element={<Team />} />
+        <Route path="/admin/profile" element={<AdminProfile />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Layout>

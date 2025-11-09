@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PageHeader from '../components/PageHeader';
+import SocietyModal from '../components/SocietyModal';
+import './Explore.css';
 
 const societies = [
   { name: 'Creative Computing Society (CCS)', tag: 'Technical', year: 2004, members: 245, desc: 'An elite technical society helping students achieve hands-on experience in technical domains.', exec: ['DA', 'DG', 'ST', 'KD', '+1'] },
@@ -11,6 +13,8 @@ const societies = [
 ];
 
 export default function Explore() {
+  const [selectedSociety, setSelectedSociety] = useState(null);
+
   return (
     <div>
       <PageHeader
@@ -20,15 +24,25 @@ export default function Explore() {
 
       <div className="grid-3">
         {societies.map((s) => (
-          <div key={s.name} className="card society-card">
-            <h3 style={{ margin: 0 }}>{s.name}</h3>
-            <p style={{ color: 'var(--muted)', margin: 0 }}>{s.desc}</p>
+          <div 
+            key={s.name} 
+            className="card society-card" 
+            onClick={() => setSelectedSociety(s)}
+          >
+            {/* logo top-right */}
+            <img
+              src={s.logo || 'https://via.placeholder.com/56'}
+              alt={`${s.name} logo`}
+              className="society-logo"
+            />
+            <h3>{s.name}</h3>
+            <p>{s.desc}</p>
             <div className="meta-row">
               <span>👥 {s.members} members</span>
               <span>📅 Est. {s.year}</span>
             </div>
             <div>
-              <div style={{ fontWeight: 700, marginBottom: 6 }}>Executive Team:</div>
+              <div className="exec-title">Executive Team:</div>
               <div className="chips">
                 {s.exec.map((e, i) => (
                   <span key={i} className="chip">{e}</span>
@@ -39,6 +53,13 @@ export default function Explore() {
           </div>
         ))}
       </div>
+
+      {selectedSociety && (
+        <SocietyModal 
+          society={selectedSociety} 
+          onClose={() => setSelectedSociety(null)} 
+        />
+      )}
     </div>
   );
 }
