@@ -14,7 +14,8 @@ societyRouter.get('/getByCategory', controller.getSocietiesByCategory);
 
 
 // Read
-societyRouter.get('/society/:id', controller.getSocietyById);
+societyRouter.get('/:id', controller.getSocietyById);
+societyRouter.get('/', controller.getAllSocieties);
 
 // Update
 societyRouter.put('/:id', controller.updateSociety);

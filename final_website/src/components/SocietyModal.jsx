@@ -9,6 +9,7 @@ const SocietyModal = ({ society, onClose }) => {
   const logoUrl = society.logo || 'https://via.placeholder.com/64x64?text=Logo';
   const execs = society.executives || [
     { name: 'Dr. Ashima Singh', role: 'President', email: 'ashima@thapar.edu', phone: '', img: 'https://via.placeholder.com/48?text=AS' },
+    { name: 'Dr. Ashima Singh', role: 'President', email: 'ashima@thapar.edu', phone: '', img: 'https://via.placeholder.com/48?text=AS' },
     { name: 'Dr. Vikas Sharma', role: 'Vice President', email: 'vikas.sharma@thapar.edu', phone: '', img: 'https://via.placeholder.com/48?text=VS' },
     { name: 'Marcus Johnson', role: 'Exhibition Manager', email: '', phone: '', img: 'https://via.placeholder.com/48?text=MJ' }
   ];
