@@ -1,4 +1,4 @@
-const societies=[{
+const societies = [{
             "_id": "690f9350fa4540ff27682554",
             "name": "Creative Computing Society (CCS)",
             "categories": [
@@ -16,7 +16,7 @@ const societies=[{
             },
             "contact": {
                 "email": "ccs@thapar.edu",
-                "phone": "+1 (555) 123-4567",
+                "phone": "+91 (555) 123-4567",
                 "website": ""
             },
             "executiveTeam": [
