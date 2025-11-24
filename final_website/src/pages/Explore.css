@@ -1,8 +1,31 @@
+/* 1. Default (Mobile) styles: 1 column */
 .grid-3 {
   display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  padding: 20px;
+  gap: 16px;
+  grid-template-columns: 1fr; /* 1 column by default */
+  grid-auto-rows: 1fr;
+  align-items: start;
+  align-content: start;
+  justify-items: stretch;
+  padding: 16px;
+}
+
+/* 2. Tablet (768px and up): 2 columns */
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 24px;
+    padding: 20px;
+  }
+}
+
+/* 3. Desktop (1024px and up): 
+   Here you can go back to your flexible auto-fill logic.
+*/
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
 }
 
 .society-card {
@@ -15,6 +38,11 @@
   gap: 16px;
   position: relative;
   transition: transform 0.2s, box-shadow 0.2s;
+  /* fill the grid row so all cards are same height */
+  height: 100%;
+  /* make sure there's no unexpected vertical offset */
+  transform: translateY(0);
+  align-self: stretch;
 }
 
 .society-card:hover {
@@ -42,19 +70,29 @@
   font-size: 0.9rem;
   color: #666;
 }
-
-.chips {
+/* Corresponds to: "absolute bottom-4 right-4" */
+.tag-container {
+  /* position: absolute; */
+  bottom: 1rem; /* 16px */
+  right: 1rem; /* 16px */
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
 }
 
-.chip {
-  background: #f3f4f6;
-  padding: 4px 12px;
-  border-radius: 16px;
-  font-size: 0.85rem;
-  color: #4b5563;
+/* Corresponds to: "bg-red-200 text-[#B11317] px-4 py-1 rounded-full text-lg font-semibold shadow-md" */
+.category-tag {
+  width: fit-content;
+  height: 2rem;
+  background-color: #fee2e2; /* bg-red-200 */
+  color: #B11317;
+  margin: 5px;
+  padding-left: 1rem;   /* px-4 */
+  padding-right: 1rem;  /* px-4 */
+  padding-top: 0.25rem; /* py-1 */
+  padding-bottom: 0.25rem;/* py-1 */
+  border-radius: 9999px; /* rounded-full */
+  font-size: 1.125rem;   /* text-lg */
+  font-weight: 600;      /* font-semibold */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
 }
 
 .pill {
@@ -84,11 +122,11 @@
 
 /* Mobile Optimizations */
 @media (max-width: 768px) {
-  .grid-3 {
+  /* .grid-3 {
     padding: 12px;
     gap: 16px;
-    grid-template-columns: 1fr;
-  }
+    grid-template-columns: 1fr 1fr;
+  } */
 
   .society-card {
     padding: 16px;
@@ -120,8 +158,8 @@
 }
 
 /* Tablet Optimizations */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* @media (min-width: 769px) and (max-width: 1024px) {
   .grid-3 {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
-}
+} */

@@ -1,0 +1,11 @@
+.page-header{
+    height: 10rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 10px;
+    
+    
+}

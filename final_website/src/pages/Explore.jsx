@@ -6,7 +6,18 @@ import './Explore.css';
 
 export default function Explore() {
   const [selectedSociety, setSelectedSociety] = useState(null);
-
+  // societies.sort((a, b) => {});
+  societies.sort((a, b) => { 
+      const nameA = a.name.toUpperCase();
+      const nameB = b.name.toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
   return (
     <div>
       <PageHeader
@@ -41,18 +52,11 @@ export default function Explore() {
                 <span>📅 Est. {year}</span>
               </div>
 
-              {execList.length > 0 && (
-                <div>
-                  <div className="exec-title">Executive Team:</div>
-                  <div className="chips">
-                    {execList.map((e, i) => (
-                      <span key={i} className="chip">{e}</span>
-                    ))}
-                  </div>
+              {/* category chips (may be multiple) */}
+              
+                <div className="tag-container">
+                    <div className="category-tag">{s.categoryNames[0]}</div>
                 </div>
-              )}
-
-              <div className="pill">{tag}</div>
             </div>
           );
         })}
