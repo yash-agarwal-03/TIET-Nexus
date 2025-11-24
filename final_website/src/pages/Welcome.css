@@ -1,10 +1,380 @@
-.grid-4 a.card.feature-card {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
+/* --- Global Resets & Variables --- */
+.welcome-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fef2f2 0%, #ffffff 50%, #fee2e2 100%);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #111827;
+  overflow-x: hidden;
+  width: 100%;
 }
 
-.grid-4 a.card.feature-card:hover {
+/* Container Utility */
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 80rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.hero-container {
+  padding-top: 5rem;
+  /* padding-bottom: 2rem; */
+}
+
+.hero-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo Wrapper */
+.hero-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.hero-logo-circle {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-logo-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hero Typography */
+.hero-title {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+.highlight-text {
+  color: #B11317;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #4b5563;
+  margin-bottom: 2rem;
+  /* Reduced max-width to make text narrower/not expanded across screen */
+  max-width: 38rem; 
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-title { font-size: 3.75rem; line-height: 1; }
+  .hero-subtitle { font-size: 1.25rem; }
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 20rem;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .hero-buttons {
+    flex-direction: row;
+    width: auto;
+    max-width: none;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  font-size: 1.125rem;
+  padding: 0.75rem 2rem;
+  min-height: 3rem;
+  text-decoration: none;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+
+@media (min-width: 640px) {
+  .btn { width: auto; }
+}
+
+.btn-primary {
+  background-color: #B11317;
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #991b1b;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid #e5e7eb;
+  color: #111827;
+}
+.btn-outline:hover {
+  background-color: #f3f4f6;
+}
+
+.btn-icon { margin-left: 0.5rem; }
+
+/* --- Features Section --- */
+.features-section {
+  padding-top: 4rem; 
+  padding-bottom: 4rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.875rem;
+  font-weight: 900;
+  color: #111827;
+  margin-bottom:  4rem;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: #4b5563;
+}
+
+/* Specific override for the Welcome page main section title
+   Increase size by ~50% and boost perceived weight. Using a more specific
+   selector so this doesn't affect other `.section-title` usages. */
+.welcome-page .section-header .section-title {
+  font-size: 2.8125rem; /* base size */
+  font-weight: 700;
+  line-height: 1.06; /* slightly tighter */
+  letter-spacing: -0.4px; /* tighter tracking to match prototype */
+  text-rendering: optimizeLegibility;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .welcome-page .section-header .section-title {
+    font-size: 3.25rem; /* slightly reduced from 3.5 for matching weight */
+    line-height: 1.03;
+    letter-spacing: -0.6px;
+  }
+}
+
+/* --- GRID SYSTEM --- */
+.nexus-grid {
+  display: grid;
+  grid-template-columns: 1fr !important; 
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .nexus-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nexus-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* --- Feature Cards (Compact Fix) --- */
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  text-decoration: none;
+  /* Removed min-height to allow them to be vertically smaller/compact */
+  min-height: 0; 
+  transition: box-shadow 0.3s ease, transform 0.2s;
+}
+
+.feature-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
+}
+
+.feature-content {
+  /* Reduced padding to make card more compact */
+  padding: 1.25rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.feature-icon {
+  color: #B11317;
+  /* Reduced margin to bring text closer to icon */
+  margin-bottom: 0.75rem; 
+  width: 3rem; 
+  height: 3rem;
+}
+
+.feature-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  /* Tighter spacing */
+  margin-bottom: 0.35rem;
+  color: #111827;
+}
+
+.feature-text {
+  color: #4b5563;
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+
+/* --- About Section --- */
+.about-section {
+  background-color: white;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Desktop: 2 Columns, Vertically Centered */
+@media (min-width: 1024px) {
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center; /* Fixes vertical alignment issues */
+    gap: 4rem; 
+  }
+}
+
+.about-text-column {
+  width: 100%;
+  text-align: left; /* Forces all content inside to align left */
+}
+
+/* Typography Fixes */
+.about-text {
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+  line-height: 1.625;
+  font-size: 1rem;
+  text-align: left; /* Ensures paragraph text is left-aligned */
+}
+
+.align-left {
+  text-align: left; /* Ensures header is left-aligned */
+}
+
+.about-cta { 
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-start; /* Ensures button stays on the left */
+}
+
+/* Image Wrapper Styling */
+.image-wrapper {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  height: 260px;
+  width: 100%;
+}
+
+.base-image {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+/* Glass Overlay Styling */
+.glass-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+}
+
+.glass-logo-wrapper {
+  width: 14rem;
+  height: 5rem;
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.glass-logo-img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.glass-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  margin-bottom: 0.5rem;
+}
+
+.glass-subtitle {
+  color: white;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
