@@ -1,8 +1,17 @@
+
 .grid-4 a.card.feature-card {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  box-sizing: border-box;
+  align-self: stretch;
 }
 
 .grid-4 a.card.feature-card:hover {
