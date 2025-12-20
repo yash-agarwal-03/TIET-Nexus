@@ -19,10 +19,16 @@ import {
 const router = Router();
 
 /* STUDENT */
-router.post("/lost-tickets", auth, requireRole(["STUDENT"]), createLostTicket);
+router.post(
+  "/lost-tickets",
+  auth,
+  requireRole(["STUDENT", "SOCIETY_ADMIN", "THAPAR_ADMIN", "LNF_ADMIN"]),
+  createLostTicket
+);
+
 router.get("/lost-tickets", auth, getApprovedLostTickets);
 router.get("/lost-tickets/myTickets", auth, requireRole(["STUDENT"]), getMyApprovedTickets);
-router.get("/found-items", auth,requireRole(["STUDENT", "LNF_ADMIN"]), getFoundItems);
+router.get("/found-items", auth,requireRole(["STUDENT", "SOCIETY_ADMIN", "THAPAR_ADMIN", "LNF_ADMIN"]), getFoundItems);
 
 /* LNF ADMIN */
 router.get(
