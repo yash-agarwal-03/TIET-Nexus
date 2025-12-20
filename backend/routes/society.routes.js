@@ -4,9 +4,16 @@ const societyRouter = express.Router();
 import * as controller from '../controllers/society.controller.js';
 import validateRequest from '../middleware/validateRequest.js';
 import { createSocietySchema } from '../validators/societyDetails.validator.js';
+import auth from "../middleware/auth.js";
+import requireRole from "../middleware/role.js";
 
-// Create
-societyRouter.post('/', validateRequest(createSocietySchema, 'body'), controller.createSociety);
+societyRouter.post(
+  '/',
+  auth,
+  requireRole(["THAPAR_ADMIN", "SOCIETY_ADMIN"]),
+  validateRequest(createSocietySchema, 'body'),
+  controller.createSociety
+);
 
 // Get societies by category name
 // Get societies by category name using query param: /by-category?category=Name

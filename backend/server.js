@@ -10,6 +10,7 @@ const app = express();
 const PORT= process.env.PORT;
 //DB CONNECTION FUNCTION CALLED
 connectToDB();
+console.log("JWT_SECRET loaded:", !!process.env.JWT_SECRET);
 
 
 //Custom headers maybe

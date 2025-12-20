@@ -68,12 +68,48 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
 
 .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.grid-4 {
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  /* add a small left gap between sidebar and content on tablet widths */
+  .main-content {
+    padding-left: 48px;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
 
 .hero { text-align: center; padding: 40px; }
 .hero .actions { margin-top: 16px; display: flex; gap: 12px; justify-content: center; }
 
-.feature-card { text-align: center; padding: 20px; }
+.feature-card {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: 180px;
+  margin: 0;
+  box-sizing: border-box;
+  align-self: stretch;
+  text-decoration: none;
+  color: var(--text);
+}
 .feature-icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: #f1f5f9; margin: 0 auto 10px; }
 
 .split { display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; align-items: center; }

@@ -35,7 +35,7 @@ export default function Team() {
           </div>
         ))}
       </div>
-
+      <div style={{ height: 16 }} />
       <div className="page-header"><h3 style={{ margin: 0 }}>Development Team</h3></div>
       <div className="grid-2" style={{ gridTemplateColumns: 'repeat(2, minmax(0,1fr))', gap: 16 }}>
         {devs.map((d) => (

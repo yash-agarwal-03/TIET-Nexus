@@ -3,7 +3,15 @@ import societyRouter from "./society.routes.js"
 import societyCategoryRouter from "./societyCategory.routes.js"
 import logger from "../utils/logger.js";
 import exploreRouter from "./explorePage.routes.js";
+import authRouter from "./auth.routes.js";
+import auth from "../middleware/auth.js";
+import feedRouter from "./feed.routes.js";
+
 const routes=new Router();
+
+
+
+
 
 
 //REDIRECT TO ALL MAJOR PAGE ROUTES
@@ -17,5 +25,12 @@ routes.get('/', (req, res) => {
 routes.use('/api/explore',exploreRouter);
 routes.use('/api/society',societyRouter);
 routes.use('/api/society/categories', societyCategoryRouter);
+
+routes.use("/api/auth", authRouter);
+routes.use("/api/feeds", feedRouter);
+routes.get("/api/test-auth", auth, (req, res) => {
+  res.json({ user: req.user });
+});
+
 export default routes;
 

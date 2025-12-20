@@ -16,3 +16,11 @@
 //   SERVER_ERROR: 500,
 //   SERVICE_UNAVAILABLE: 503,
 // } ;
+export const ALLOWED_FEED_TAGS = [
+  "ACADEMIC",
+  "TECHNICAL",
+  "EVENT",
+  "ANNOUNCEMENT",
+  "JOB",
+  "EXAM"
+];
