@@ -19,8 +19,8 @@ routes.get('/', (req, res) => {
   `);
 });
 routes.use('/api/explore',exploreRouter);
-routes.use('/api/society',societyRouter);
 routes.use('/api/society/categories', societyCategoryRouter);
+routes.use('/api/society',societyRouter);
 
 //latest routes - fully furnished
 routes.use("/api/auth", authRouter);

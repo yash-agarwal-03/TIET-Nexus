@@ -6,14 +6,8 @@ import validateRequest from '../middleware/validateRequest.js';
 import { createSocietySchema } from '../validators/societyDetails.validator.js';
 
 
-// List
-exploreRouter.get('/', controller.getAllSocieties);
 
 // Read
-exploreRouter.get('/society/:id', controller.getSocietyById);
-
-// Note: attach authentication middleware where needed, e.g.
-// import auth from '../middlewares/auth.js';
-// router.post('/', auth, validateRequest(createSocietySchema, 'body'), controller.create);
+// exploreRouter.get('/society/:id', controller.getSocietyById);
 
 export default exploreRouter;

@@ -1,79 +1,78 @@
-import logger from '../utils/logger.js';
-import SocietyService from '../services/society.service.js';
+import SocietyService from "../services/society.service.js";
 
 const service = new SocietyService();
 
-// NOTE: validation must happen at the router level using validateRequest(schema, 'body')
+/**
+ * EDIT PERMISSION RULE
+ * - Role must be THAPAR_ADMIN or SOCIETY_ADMIN
+ * - AND email must exist in executiveTeam
+ */
+function assertCanEdit(req, society) {
+  const { email, role } = req.user;
 
+  const isAdmin =
+    role === "THAPAR_ADMIN" || role === "SOCIETY_ADMIN";
+
+  const isExec = society.executiveTeam.some(
+    (m) => m.email.toLowerCase() === email.toLowerCase()
+  );
+
+  if (!isAdmin || !isExec) {
+    throw { status: 403, message: "Not authorized to edit this society" };
+  }
+}
+
+/**
+ * CREATE SOCIETY
+ * (THAPAR_ADMIN enforced at route level)
+ */
 export const createSociety = async (req, res, next) => {
   try {
-    const created = await service.createSociety(req.body);
-    logger.info(`${req.method} ${req.originalUrl} | Create society | Success`);
-    return res.status(201).json({ success: true, data: created });
+    const created = await service.create(req.body);
+    res.status(201).json({ success: true, data: created });
   } catch (err) {
-    console.log(`error in creating society createSociety backend/controllers/society.controller.js`);
-    // Service already logs errors. Forward to centralized error handler.
-    return next(err);
-  }
-};
-export const getAllSocieties = async (req, res, next) => {
-  try {
-    const items = await service.getAllSocieties({}, { limit: req.query.limit });
-    logger.info(`${req.method} ${req.originalUrl} | List societies | Success | count=${Array.isArray(items) ? items.length : 0}`);
-    return res.status(200).json({ success: true, data: items });
-  } catch (err) {
-    console.log(`error in listing societies getAllSocieties backend/controllers/society.controller.js`);
-    return next(err);
+    next(err);
   }
 };
 
+/**
+ * GET SOCIETY BY ID (PUBLIC)
+ */
 export const getSocietyById = async (req, res, next) => {
   try {
-    const item = await service.getSocietyById(req.params.id);
-    logger.info(`${req.method} ${req.originalUrl} | Fetch society | Success`);
-    return res.status(200).json({ success: true, data: item });
+    const society = await service.getById(req.params.id);
+    res.json({ success: true, data: society });
   } catch (err) {
-    console.log(`error in fetching society getSocietyById backend/controllers/society.controller.js`);
-    return next(err);
+    next(err);
   }
 };
 
+/**
+ * GET SOCIETIES BY CATEGORY (EXPLORE PAGE)
+ */
 export const getSocietiesByCategory = async (req, res, next) => {
   try {
-    const categoryQuery = req.query.category;
-    if (!categoryQuery) return next({ status: 400, message: 'category query parameter is required' });
-
-    // support comma-separated values: ?category=Technical,Music and Drama
-    const categories = categoryQuery.split(',').map((s) => s.trim()).filter(Boolean);
-    if (categories.length === 0) return next({ status: 400, message: 'category query parameter is empty' });
-
-    const names = await service.getSocietiesByCategory(categories);
-    logger.info(`${req.method} ${req.originalUrl} | Fetch societies by category | Success | categories=${categories.join(',')} | count=${names.length}`);
-    return res.status(200).json({ success: true, data: names });
+    const data = await service.listByCategory(req.query.categoryId);
+    res.json({ success: true, data });
   } catch (err) {
-    console.log(`error in fetching societies by category getSocietiesByCategory backend/controllers/society.controller.js`);
-    return next(err);
+    next(err);
   }
 };
 
+/**
+ * UPDATE SOCIETY (PATCH)
+ * - Partial updates allowed
+ * - Only THAPAR / SOCIETY admin
+ * - AND must be in executiveTeam
+ */
 export const updateSociety = async (req, res, next) => {
   try {
-    const updated = await service.updateSociety(req.params.id, req.body);
-    logger.info(`${req.method} ${req.originalUrl} | Update society | Success`);
-    return res.status(200).json({ success: true, data: updated });
-  } catch (err) {
-    console.log(`error in updating society updateSociety backend/controllers/society.controller.js`);
-    return next(err);
-  }
-};
+    const society = await service.getById(req.params.id);
+    assertCanEdit(req, society);
 
-export const deleteSociety = async (req, res, next) => {
-  try {
-    const deleted = await service.deleteSociety(req.params.id);
-    logger.info(`${req.method} ${req.originalUrl} | Delete society | Success`);
-    return res.status(200).json({ success: true, data: deleted });
+    const updated = await service.update(req.params.id, req.body);
+    res.json({ success: true, data: updated });
   } catch (err) {
-    console.log(`error in deleting society deleteSociety backend/controllers/society.controller.js`);
-    return next(err);
+    next(err);
   }
 };

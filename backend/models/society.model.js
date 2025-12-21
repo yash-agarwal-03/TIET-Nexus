@@ -1,73 +1,69 @@
-// models/Society.js
 import mongoose from "mongoose";
 
-const executiveMemberSchema = new mongoose.Schema({
+const executiveMemberSchema = new mongoose.Schema(
+  {
   name: { type: String, required: true },
   role: { type: String, required: true },
-  email: { type: String },
-});
+  email: { type: String, required: true }
+},
+  { _id: false }
+);
 
-const eventSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  date: { type: String, required: true }, // store as formatted string (e.g. "March 13, 2024")
-  location: { type: String },
-});
-
-const societySchema = new mongoose.Schema({
-  name: { type: String, required: true }, // e.g. "Creative Computing Society (CCS)"
-  categories: [
+const eventSchema = new mongoose.Schema(
   {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "SocietyCategory",
-    required: true,
-  },
-],
-categoryNames: [
-  {
-    type: String,
-    index: true,
-    required: true,
-  },
-],
-  logo: { type: String, required: true },
-
-  about: { type: String, required: true },
-
-  stats: {
-    activeMembers: { type: Number, default: 0 },
-    establishedYear: { type: Number },
+    title: { type: String, required: true },
+    date: { type: String, required: true },
     location: { type: String },
   },
+  { _id: false }
+);
 
-  contact: {
-    email: { type: String },
-    phone: { type: String },
-    website: { type: String },
+const societySchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true, trim: true },
+
+    category: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "SocietyCategory",
+      required: true,
+      index: true,
+    },
+
+    logo: { type: String, required: true },
+    about: { type: String, required: true },
+
+    stats: {
+      activeMembers: { type: Number, default: 0 },
+      establishedYear: { type: Number },
+      location: { type: String },
+    },
+
+    contact: {
+      email: { type: String },
+      phone: { type: String },
+      website: { type: String },
+    },
+
+    // 🔐 ONLY editors
+    executiveTeam: {
+      type: [executiveMemberSchema],
+      validate: [
+        (v) => Array.isArray(v) && v.length > 0,
+        "At least one executive member is required",
+      ],
+    },
+
+    ourActivities: [{ type: String }],
+    recentAchievements: [{ type: String }],
+    upcomingEvents: [eventSchema],
+
+    socials: {
+      instagram: { type: String },
+      linkedin: { type: String },
+      twitter: { type: String },
+    },
   },
-
-  executiveTeam: [executiveMemberSchema],
-
-  ourActivities: [{ type: String }], // can be null/empty
-  recentAchievements: [{ type: String }], // can be null/empty
-
-  upcomingEvents: [eventSchema], // can be null/empty
-
-  socials: {
-    instagram: { type: String },
-    linkedin: { type: String },
-    twitter: { type: String },
-  },
-
-  lastUpdated: { type: Date, default: Date.now },
-},
-{
-    indexes:[
-      {
-        name:"idx_type",
-        fields:["type"]
-      }
-    ]
-}
+  { timestamps: true }
 );
 
 export default mongoose.model("Society", societySchema);

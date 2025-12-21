@@ -1,37 +1,28 @@
-import express from 'express';
-const societyRouter = express.Router();
-
-import * as controller from '../controllers/society.controller.js';
-import validateRequest from '../middleware/validateRequest.js';
-import { createSocietySchema } from '../validators/societyDetails.validator.js';
+import express from "express";
 import auth from "../middleware/auth.js";
 import requireRole from "../middleware/role.js";
+import validateRequest from "../middleware/validateRequest.js";
+import { createSocietySchema } from "../validators/societyDetails.validator.js";
+import * as controller from "../controllers/society.controller.js";
 
-societyRouter.post(
-  '/',
+const router = express.Router();
+
+// Create — ONLY THAPAR_ADMIN
+router.post(
+  "/",
   auth,
-  requireRole(["THAPAR_ADMIN", "SOCIETY_ADMIN"]),
-  validateRequest(createSocietySchema, 'body'),
+  requireRole(["THAPAR_ADMIN"]),
+  validateRequest(createSocietySchema),
   controller.createSociety
 );
 
-// Get societies by category name
-// Get societies by category name using query param: /by-category?category=Name
-societyRouter.get('/getByCategory', controller.getSocietiesByCategory);
+// Explore page
+router.get("/by-category", controller.getSocietiesByCategory);
 
+// Society modal
+router.get("/:id", controller.getSocietyById);
 
-// Read
-societyRouter.get('/:id', controller.getSocietyById);
-societyRouter.get('/', controller.getAllSocieties);
+// Update — ONLY EXEC MEMBERS
+router.patch("/:id", auth, controller.updateSociety);
 
-// Update
-societyRouter.put('/:id', controller.updateSociety);
-
-// Delete
-societyRouter.delete('/:id', controller.deleteSociety);
-
-// Note: attach authentication middleware where needed, e.g.
-// import auth from '../middlewares/auth.js';
-// router.post('/', auth, validateRequest(createSocietySchema, 'body'), controller.create);
-
-export default societyRouter;
+export default router;
