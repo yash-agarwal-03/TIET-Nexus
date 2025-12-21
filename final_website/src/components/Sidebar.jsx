@@ -1,75 +1,115 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { Home, Search, Map, Cpu, Rss, Compass, Phone, Users, LogOut, LogIn } from 'lucide-react';
+// Sidebar.jsx
+import "./Sidebar.css";
+import { NavLink, useLocation } from "react-router-dom";
+import { X, LogIn, LogOut } from "lucide-react";
+import {
+  Home,
+  Compass,
+  Map,
+  Bot,
+  Rss,
+  Phone,
+  Users,
+} from "lucide-react";
+import { useAuth } from "../context/AuthContext";
+import { useModal } from "../context/ModalContext";
 
-const userNavItems = [
-  { to: '/', label: 'Welcome', icon: Home },
-  { to: '/explore', label: 'Explore', icon: Search },
-  { to: '/campus-map', label: 'Campus Map', icon: Map },
-  { to: '/thapar-ai', label: 'Thapar AI', icon: Cpu },
-  { to: '/feeds', label: 'Feeds', icon: Rss },
-  { to: '/lost-and-found', label: 'Lost & Found', icon: Compass },
-  { to: '/contact', label: 'Contact Us', icon: Phone },
-  { to: '/team', label: 'Team', icon: Users }
+const navigation = [
+  { name: "Welcome", href: "/", icon: Home },
+  { name: "Explore", href: "/explore", icon: Compass },
+  { name: "Campus Map", href: "/map", icon: Map },
+  { name: "Thapar AI", href: "/ai", icon: Bot },
+  { name: "Feeds", href: "/feeds", icon: Rss },
+  { name: "Lost & Found", href: "/lnf", icon: Users },
+  { name: "Contact Us", href: "/contact", icon: Phone },
+  { name: "Team", href: "/team", icon: Users },
 ];
 
-const adminNavItems = [
-  { to: '/admin/profile', label: 'Edit Profile', icon: Home },
-  { to: '/explore', label: 'Explore', icon: Search },
-  { to: '/campus-map', label: 'Campus Map', icon: Map },
-  { to: '/thapar-ai', label: 'Thapar AI', icon: Cpu },
-  { to: '/feeds', label: 'Feeds', icon: Rss },
-  { to: '/lost-and-found', label: 'Lost & Found', icon: Compass },
-  { to: '/contact', label: 'Contact Us', icon: Phone },
-  { to: '/team', label: 'Team', icon: Users }
-];
+export default function Sidebar({ isOpen, onClose }) {
+  const location = useLocation();
+  const { user, isLoggedIn, logout } = useAuth();
+  const { openLogin } = useModal();
 
-export default function Sidebar() {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const initials = user?.name
+    ? user.name
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+    : "G";
+
+  const Content = () => (
+    <div className="sb-container">
+      {/* Logo */}
+      <div className="sb-logo">
+        <div className="sb-logo-img">
+          <img src="/tiet.png" alt="TIET" />
+        </div>
+        <span className="sb-logo-text">TIET Nexus</span>
+      </div>
+
+      {/* Profile */}
+      <div className="sb-profile">
+        <div className="sb-avatar">{initials}</div>
+        <div className="sb-profile-info">
+          <p className="sb-name">
+            {isLoggedIn ? user.name : "Guest"}
+          </p>
+          {isLoggedIn && (
+            <p className="sb-email">{user.email}</p>
+          )}
+        </div>
+
+        {!isLoggedIn ? (
+          <button className="sb-login-btn" onClick={openLogin}>
+            <LogIn size={18} />
+          </button>
+        ) : (
+          <button className="sb-logout-btn" onClick={logout}>
+            <LogOut size={18} />
+          </button>
+        )}
+      </div>
+
+      {/* Nav */}
+      <nav className="sb-nav">
+        <ul>
+          {navigation.map(({ name, href, icon: Icon }) => {
+            const active = location.pathname === href;
+            return (
+              <li key={name}>
+                <NavLink
+                  to={href}
+                  className={`sb-link ${active ? "active" : ""}`}
+                  onClick={onClose}
+                >
+                  <Icon size={22} />
+                  <span>{name}</span>
+                </NavLink>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </div>
+  );
 
   return (
-    <aside className="sidebar">
-      <div className="brand">
-        <div className="brand-logo">ti</div>
-        <div className="brand-name">TIET Nexus</div>
-      </div>
-      <div className={`user-box ${isAdmin ? 'admin' : ''}`}>
-        <div className="avatar">
-          {isAdmin ? 'A' : 'G'}
-        </div>
-        <div className="user-meta">
-          <div className="user-name">
-            {isAdmin ? 'Admin' : 'Guest'}
-          </div>
-          <button 
-            className="toggle-admin" 
-            onClick={() => setIsAdmin(!isAdmin)}
-            title={isAdmin ? 'Switch to User Mode' : 'Switch to Admin Mode'}
-          >
-            {isAdmin ? <LogOut size={10} /> : <LogIn size={10} />}
+    <>
+      {/* Desktop */}
+      <aside className="sb-desktop">
+        <Content />
+      </aside>
+
+      {/* Mobile */}
+      <aside className={`sb-mobile ${isOpen ? "open" : ""}`}>
+        <div className="sb-mobile-header">
+          <span>TIET Nexus</span>
+          <button onClick={onClose}>
+            <X size={20} />
           </button>
         </div>
-      </div>
-      <nav className="nav">
-        {(isAdmin ? adminNavItems : userNavItems).map(item => {
-          const Icon = item.icon;
-          return (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.to === '/' || item.to === '/admin/profile'}
-              className={({ isActive }) =>
-                'nav-link' + (isActive ? ' active' : '')
-              }
-            >
-              <Icon className="nav-icon" aria-hidden="true" />
-              <span>{item.label}</span>
-            </NavLink>
-          );
-        })}
-      </nav>
-    </aside>
+        <Content />
+      </aside>
+    </>
   );
 }
-
-

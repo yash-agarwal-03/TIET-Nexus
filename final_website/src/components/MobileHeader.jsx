@@ -1,33 +1,30 @@
-import React from 'react';
-import './MobileHeader.css';
+// MobileHeader.jsx — STRICT 1:1 translation of Next.js mobile-header.tsx
+import React from "react";
+import { Menu, X } from "lucide-react";
+import "./MobileHeader.css";
 
-const MobileHeader = ({ onMenuClick, isMenuOpen }) => {
+export default function MobileHeader({ onMenuClick, isMenuOpen }) {
   return (
-    <div className="mobile-header">
-      <button 
-        className={`hamburger-btn ${isMenuOpen ? 'active' : ''}`} 
+    <div className="mh-root">
+      <button
+        className="mh-menu-btn"
         onClick={onMenuClick}
-        aria-label="Toggle navigation menu"
+        aria-expanded={!!isMenuOpen}
+        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+        type="button"
       >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={`menu-icon ${isMenuOpen ? 'open' : ''}`}
-        >
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="18" x2="21" y2="18" />
-        </svg>
+        {!isMenuOpen ? <Menu className="mh-icon" /> : <X className="mh-icon" />}
       </button>
-      <h1 className="mobile-title">TIET Nexus</h1>
+
+      <div className="mh-brand">
+        <div className="mh-logo">
+          <img
+            src="/tiet.png"
+            alt="Thapar Institute Logo"
+          />
+        </div>
+        <span className="mh-title">TIET Nexus</span>
+      </div>
     </div>
   );
-};
-
-export default MobileHeader;
+}

@@ -53,9 +53,11 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
 .main-content > .grid-2, 
 .main-content > .grid-3, 
 .main-content > .grid-4 { 
-  margin: 28px 32px; 
+  width: 100%;
+  max-width: 1200px; /* Prevent it from stretching too wide on ultrawide monitors */
+  margin: 20px auto; /* Centers the grid itself */
+  padding: 0 16px;   /* Safe gutters for mobile */
 }
-
 /* Exception: WelcomePage handles its own layout */
 .welcome-page { margin: 0; }
 
@@ -70,19 +72,13 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
 .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .grid-4 {
   display: grid;
-  margin-top: 20px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
-  align-items: stretch;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 @media (max-width: 1024px) {
   .grid-4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  /* add a small left gap between sidebar and content on tablet widths */
-  .main-content {
-    padding-left: 48px;
   }
 }
 

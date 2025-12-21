@@ -1,75 +1,96 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import './MobileSidebar.css';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { 
+  Home, Compass, Map, Bot, Rss, Search, Phone, Users, X, LogIn, LogOut 
+} from "lucide-react";
+import { useModal } from "../context/ModalContext";
+import { useAuth } from "../context/AuthContext";
+import "./MobileSidebar.css";
 
-// Import the same navigation items from Sidebar
 const navItems = [
-  { to: '/', label: 'Welcome', icon: '🏠' },
-  { to: '/explore', label: 'Explore', icon: '🔎' },
-  { to: '/campus-map', label: 'Campus Map', icon: '🗺️' },
-  { to: '/thapar-ai', label: 'Thapar AI', icon: '🤖' },
-  { to: '/feeds', label: 'Feeds', icon: '📡' },
-  { to: '/lost-and-found', label: 'Lost & Found', icon: '🧭' },
-  { to: '/contact', label: 'Contact Us', icon: '📞' },
-  { to: '/team', label: 'Team', icon: '👥' }
+  { name: "Welcome", to: "/", icon: Home },
+  { name: "Explore", to: "/explore", icon: Compass },
+  { name: "Campus Map", to: "/map", icon: Map },
+  { name: "Thapar AI", to: "/ai", icon: Bot },
+  { name: "Feeds", to: "/feeds", icon: Rss },
+  { name: "Lost & Found", to: "/lnf", icon: Search },
+  { name: "Contact Us", to: "/contact", icon: Phone },
+  { name: "Team", to: "/team", icon: Users },
 ];
 
-const MobileSidebar = ({ isOpen, onClose }) => {
+export default function MobileSidebar({ isOpen, onClose }) {
+  const { openLogin } = useModal();
+  const { user, isLoggedIn, logout } = useAuth();
+
+  if (!isOpen) return null;
+
+  const initials = user?.name
+    ? user.name.split(" ").map((n) => n[0]).join("")
+    : "G";
+
   return (
     <>
-      <div 
-        className={`mobile-sidebar-overlay ${isOpen ? 'active' : ''}`} 
-        onClick={onClose}
-      />
-      <aside className={`mobile-sidebar ${isOpen ? 'open' : ''}`}>
-        <div className="mobile-sidebar-header">
-          <div className="brand">
-            <div className="brand-logo">ti</div>
-            <div className="brand-name">TIET Nexus</div>
+      {/* Semi-transparent dark overlay */}
+      <div className="msb-overlay active" onClick={onClose} />
+
+      {/* Main Drawer Container */}
+      <aside className="msb-drawer open">
+        
+        {/* Top Header Section */}
+        <div className="msb-header">
+          <div className="msb-brand">
+            <div className="msb-logo-box">
+              <img src="/tiet.png" alt="TIET Logo" />
+            </div>
+            <span className="msb-brand-name">TIET Nexus</span>
           </div>
-          <button className="close-btn" onClick={onClose}>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
+          <button className="msb-close-x" onClick={onClose}>
+            <X size={20} />
           </button>
         </div>
 
-        <div className="user-box">
-          <div className="avatar">G</div>
-          <div className="user-meta">
-            <div className="user-name">Guest</div>
+        {/* User Status Card (Floating Guest Card) */}
+        <div className="msb-user-section">
+          <div className="msb-user-card">
+            <div className="msb-avatar">{initials}</div>
+            <div className="msb-user-info">
+              <span className="msb-username">{isLoggedIn ? user.name : "Guest"}</span>
+            </div>
+            
+            {!isLoggedIn ? (
+              <button 
+                className="msb-auth-btn" 
+                onClick={() => { onClose(); openLogin(); }}
+              >
+                <LogIn size={18} />
+              </button>
+            ) : (
+              <button className="msb-auth-btn" onClick={logout}>
+                <LogOut size={18} />
+              </button>
+            )}
           </div>
         </div>
 
-        <nav className="mobile-nav">
-          {navItems.map(item => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.to === '/'}
-              className={({ isActive }) =>
-                'nav-link' + (isActive ? ' active' : '')
-              }
-              onClick={onClose}
-            >
-              <span className="nav-icon" aria-hidden>{item.icon}</span>
-              <span>{item.label}</span>
-            </NavLink>
-          ))}
+        {/* Navigation Menu List */}
+        <nav className="msb-nav">
+          <ul>
+            {navItems.map(({ name, to, icon: Icon }) => (
+              <li key={name}>
+                <NavLink
+                  to={to}
+                  end={to === "/"}
+                  className={({ isActive }) => `msb-link ${isActive ? "active" : ""}`}
+                  onClick={onClose}
+                >
+                  <Icon size={22} className="msb-icon" />
+                  <span>{name}</span>
+                </NavLink>
+              </li>
+            ))}
+          </ul>
         </nav>
       </aside>
     </>
   );
-};
-
-export default MobileSidebar;
+}

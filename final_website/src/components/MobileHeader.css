@@ -1,68 +1,83 @@
-.mobile-header {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  background: white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  position: fixed;
+/* MobileHeader.css — exact Tailwind → CSS mapping */
+
+/*
+sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4
+border-b border-gray-200 bg-white px-4 shadow-sm
+sm:gap-x-6 sm:px-6 lg:hidden
+*/
+
+.mh-root {
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  height: 60px;
+  z-index: 40;
+  display: flex;
+  height: 64px;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+  padding: 0 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
-.mobile-title {
-  margin: 0 0 0 1rem;
-  font-size: 1.2rem;
-  font-weight: 600;
+@media (min-width: 640px) {
+  .mh-root {
+    gap: 24px;
+    padding: 0 24px;
+  }
 }
 
-.hamburger-btn {
-  width: 40px;
-  height: 40px;
+@media (min-width: 1024px) {
+  .mh-root {
+    display: none;
+  }
+}
+
+/* Button variant="ghost" size="sm" */
+.mh-menu-btn {
+  background: none;
   border: none;
-  background: transparent;
-  cursor: pointer;
-  padding: 8px;
+  padding: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
 }
 
-.hamburger-btn:hover {
-  background: rgba(0, 0, 0, 0.05);
+/* h-6 w-6 */
+.mh-icon {
+  width: 24px;
+  height: 24px;
 }
 
-.menu-icon {
-  color: #333;
-  transition: transform 0.3s ease;
+/* flex items-center gap-3 */
+.mh-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.menu-icon.open {
-  transform: scale(0.9);
+/* w-10 h-10 rounded-lg overflow-hidden bg-white flex items-center justify-center */
+.mh-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hamburger-btn.active .menu-icon line:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
+.mh-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.hamburger-btn.active .menu-icon line:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger-btn.active .menu-icon line:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-.hamburger-btn .menu-icon line {
-  transition: all 0.3s ease;
-  transform-origin: center;
-}
-
-@media (min-width: 769px) {
-  .mobile-header {
-    display: none;
-  }
+/* text-xl font-bold text-gray-900 */
+.mh-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
 }
