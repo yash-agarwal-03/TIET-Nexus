@@ -73,14 +73,25 @@
   color: #111827;
 }
 
-/* Profile */
-.sb-profile {
+.sb-profile-wrapper {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  flex-direction: column;
+  gap: 12px;
   padding: 14px;
   background: #f9fafb;
   border-radius: 12px;
+}
+.sb-profile { 
+  display: flex; 
+  align-items: center; 
+  gap: 14px; 
+  padding: 0; /* Resetting padding since wrapper handles it */
+  background: transparent;
+}
+.sb-role-label {
+  font-size: 12px;
+  color: #b11317; /* Highlighting the role in brand red */
+  font-weight: 500;
 }
 .sb-avatar {
   width: 44px;

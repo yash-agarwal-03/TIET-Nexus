@@ -1,0 +1,157 @@
+/* Team.css */
+.team-container-fluid {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Grids */
+.supervisor-grid, .student-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+/* Supervisor Card (Horizontal) */
+.supervisor-card-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  border: 1px solid #f3f4f6;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.supervisor-card-horizontal .team-avatar-circle {
+  width: 120px;
+  height: 120px;
+}
+
+/* Developer Card (Vertical) */
+.developer-card-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border: 1px solid #f3f4f6;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+}
+
+.developer-card-vertical .team-avatar-circle {
+  width: 150px; 
+  height: 150px;
+}
+
+.team-avatar-circle {
+  border-radius: 50%;
+  background: #fdeaea;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fee2e2;
+  flex-shrink: 0;
+}
+
+.team-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Taller Horizontal Social Links with Borders and Hover */
+.member-socials-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap; /* Essential for mobile responsiveness */
+}
+
+.social-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px; /* Taller size */
+  border: 1.5px solid #e5e7eb; /* Visible border */
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4b5563;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.social-pill:hover {
+  background-color: #fdf2f2;
+  border-color: #b11317;
+  color: #b11317;
+  transform: translateY(-2px);
+}
+
+/* Typography */
+.member-name-compact {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.member-role-compact {
+  color: #b11317;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Footer & Circular Logo */
+.team-footer-simple {
+  background: #fff5f5;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.footer-circle-logo {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.footer-circle-logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: white;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .supervisor-grid, .student-grid {
+    grid-template-columns: 1fr;
+    max-width: 650px;
+    margin: 0 auto 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .supervisor-card-horizontal {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .member-socials-row {
+    justify-content: center;
+  }
+
+  .team-footer-simple {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -6,10 +6,10 @@ export default function Welcome() {
   
   // Feature data for the mapping
   const features = [
-    { icon: Users, title: 'Explore Societies', text: 'Discover clubs and societies that match your interests', path: '/explore' },
     { icon: Map, title: 'Campus Map', text: 'Navigate the campus with our interactive map', path: '/campus-map' },
+    { icon: Rss, title: 'Campus Feeds', text: 'Stay updated with the latest campus news', path: '/feeds' },
+    { icon: Users, title: 'Explore Societies', text: 'Discover clubs and societies that match your interests', path: '/explore' },
     { icon: Bot, title: 'Thapar AI', text: 'Get instant answers to your campus questions', path: '/thapar-ai' },
-    { icon: Rss, title: 'Campus Feeds', text: 'Stay updated with the latest campus news', path: '/feeds' }
   ];
 
   return (
@@ -42,8 +42,8 @@ export default function Welcome() {
               <a href="/explore" className="btn btn-primary">
                 Explore Societies <ArrowRight className="btn-icon" size={20} />
               </a>
-              <a href="/map" className="btn btn-outline">
-                Campus Map
+              <a href="/lost-found" className="btn btn-outline">
+                Lost & Found
               </a>
             </div>
           </div>

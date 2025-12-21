@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { useModal } from "../context/ModalContext";
+import LoginButton from "./LoginButton";
 
 const navigation = [
   { name: "Welcome", href: "/", icon: Home },
@@ -20,7 +21,7 @@ const navigation = [
   { name: "Campus Map", href: "/map", icon: Map },
   { name: "Thapar AI", href: "/ai", icon: Bot },
   { name: "Feeds", href: "/feeds", icon: Rss },
-  { name: "Lost & Found", href: "/lnf", icon: Users },
+  { name: "Lost & Found", href: "/lost-found", icon: Users },
   { name: "Contact Us", href: "/contact", icon: Phone },
   { name: "Team", href: "/team", icon: Users },
 ];
@@ -29,7 +30,16 @@ export default function Sidebar({ isOpen, onClose }) {
   const location = useLocation();
   const { user, isLoggedIn, logout } = useAuth();
   const { openLogin } = useModal();
-
+  // Helper to translate roles
+const getRoleLabel = (role) => {
+  const labels = {
+    STUDENT: "Student",
+    LNF_ADMIN: "Lost & Found Admin",
+    THAPAR_ADMIN: "Thapar Admin",
+    SOCIETY_ADMIN: "Society Admin",
+  };
+  return labels[role] || "Guest";
+};
   const initials = user?.name
     ? user.name
         .split(" ")
@@ -48,27 +58,20 @@ export default function Sidebar({ isOpen, onClose }) {
       </div>
 
       {/* Profile */}
-      <div className="sb-profile">
-        <div className="sb-avatar">{initials}</div>
-        <div className="sb-profile-info">
-          <p className="sb-name">
-            {isLoggedIn ? user.name : "Guest"}
-          </p>
-          {isLoggedIn && (
-            <p className="sb-email">{user.email}</p>
-          )}
-        </div>
-
-        {!isLoggedIn ? (
-          <button className="sb-login-btn" onClick={openLogin}>
-            <LogIn size={18} />
-          </button>
-        ) : (
-          <button className="sb-logout-btn" onClick={logout}>
-            <LogOut size={18} />
-          </button>
-        )}
-      </div>
+      <div className="sb-profile-wrapper">
+  <div className="sb-profile">
+    <div className="sb-avatar">{initials}</div>
+    <div className="sb-profile-info">
+      <p className="sb-name">{isLoggedIn ? user.name : "Guest"}</p>
+      <p className="sb-role-label">
+        {isLoggedIn ? getRoleLabel(user.role) : "Signed in as Guest"}
+      </p>
+    </div>
+  </div>
+  <div className="sb-auth-wrapper">
+    <LoginButton />
+  </div>
+</div>
 
       {/* Nav */}
       <nav className="sb-nav">

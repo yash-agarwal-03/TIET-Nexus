@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import LostFoundPage from "./pages/LostFound.jsx";
 
 import PublicLayout from "./layouts/PublicLayout.jsx";
 
@@ -6,7 +7,7 @@ import PublicLayout from "./layouts/PublicLayout.jsx";
 import Welcome from "./pages/Welcome.jsx";
 import Explore from "./pages/Explore.jsx";
 import Feeds from "./pages/Feeds.jsx";
-import LostAndFound from "./pages/LostAndFound.jsx";
+import LostAndFound from "./pages/LostFound.jsx";
 import Contact from "./pages/Contact.jsx";
 import Team from "./pages/Team.jsx";
 
@@ -17,7 +18,7 @@ export default function App() {
         <Route path="/" element={<Welcome />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/feeds" element={<Feeds />} />
-        <Route path="/lost-and-found" element={<LostAndFound />} />
+        <Route path="/lost-found" element={<LostFoundPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/team" element={<Team />} />
       </Route>

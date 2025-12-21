@@ -13,7 +13,7 @@ const navItems = [
   { name: "Campus Map", to: "/map", icon: Map },
   { name: "Thapar AI", to: "/ai", icon: Bot },
   { name: "Feeds", to: "/feeds", icon: Rss },
-  { name: "Lost & Found", to: "/lnf", icon: Search },
+  { name: "Lost & Found", to: "/lost-found", icon: Search },
   { name: "Contact Us", to: "/contact", icon: Phone },
   { name: "Team", to: "/team", icon: Users },
 ];
