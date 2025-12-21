@@ -3,7 +3,8 @@ import { X, GraduationCap, Shield, Users } from "lucide-react";
 import { useModal } from "../context/ModalContext";
 import "./LoginModal.css";
 import { GoogleLogin } from "@react-oauth/google";
-
+import { useAuth } from "../context/AuthContext";
+import { googleLogin } from "../api/auth.api";
 const ROLES = [
   { key: "STUDENT", label: "Student", icon: GraduationCap },
   { key: "SOCIETY_ADMIN", label: "Society Admin", icon: Users },
@@ -14,6 +15,7 @@ const ROLES = [
 export default function LoginModal() {
   const { isLoginOpen, closeLogin } = useModal();
   const [selectedRole, setSelectedRole] = useState("STUDENT");
+  const { login } = useAuth();
 
   if (!isLoginOpen) return null;
 
@@ -49,13 +51,22 @@ export default function LoginModal() {
           <p className="sub">Continue with your Thapar Google account</p>
 
           <GoogleLogin
-            onSuccess={(credentialResponse) => {
-              console.log("Google ID token:", credentialResponse);
+            onSuccess={async (credentialResponse) => {
+              try {
+                const data = await googleLogin(
+                  credentialResponse.credential,
+                  selectedRole
+                );
+
+                login(data.token);
+                closeLogin();
+              } catch (err) {
+                alert(err.message || "Login failed");
+              }
             }}
             onError={() => {
-              console.error("Google login failed");
+              alert("Google login failed");
             }}
-            useOneTap={false}
           />
         </div>
       </div>
