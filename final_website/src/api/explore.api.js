@@ -19,3 +19,8 @@ export const getSocietiesByCategory = async (categoryId) => {
   // backend may return { data: [...] } or [...]
   return data.data || data || [];
 };
+export const getSocietyById = async (societyId) => {
+  const res = await fetch(`${BASE_URL}/society/${societyId}`);
+  if (!res.ok) throw new Error("Failed to fetch society");
+  return res.json(); // { success, data }
+};
