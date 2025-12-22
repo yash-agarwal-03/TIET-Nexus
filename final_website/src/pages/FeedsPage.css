@@ -1,0 +1,322 @@
+/* FeedsPage.css - Final Comprehensive Version */
+
+.feeds-page-wrapper {
+  background-color: #fffafa; /* Matches Next.js Explore background */
+  min-height: 100vh;
+  width: 100%;
+  padding-bottom: 100px;
+}
+
+.feeds-main-content {
+  max-width: 900px; /* Wider card layout */
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+/* Header Styling */
+.feeds-header-section {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.feeds-header-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.025em;
+  margin-bottom: 12px;
+}
+
+.feeds-header-subtitle {
+  color: #64748b;
+  font-size: 1.125rem;
+}
+
+/* Feed List */
+.feeds-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.feed-card-item {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.feed-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.feed-author-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.feed-tag-badge {
+  width: fit-content;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: #f1f5f9;
+}
+
+/* Tag Specific Colors */
+.feed-tag-badge.exam { background: #fee2e2; color: #b91c1c; }
+.feed-tag-badge.academic { background: #e0f2fe; color: #0369a1; }
+.feed-tag-badge.technical { background: #f0fdf4; color: #166534; }
+.feed-tag-badge.event { background: #fef9c3; color: #854d0e; }
+
+.uploader-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.feed-date-text {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.feed-main-text {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.feed-card-footer {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.feed-footer-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #64748b;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Heart Animation & Toggled Pink State */
+.like-btn.active {
+  color: #ff4d6d;
+}
+
+.like-btn.active svg {
+  animation: heartPop 0.4s cubic-bezier(0.17, 0.89, 0.32, 1.49);
+}
+
+@keyframes heartPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* FAB - Blue Circle */
+.feeds-fab-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.2s ease;
+}
+
+.feeds-fab-btn:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+
+/* Toast Notification */
+.feeds-toast-box {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  background: #1e293b;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 12px;
+  z-index: 2000;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* Modal Overlay */
+/* --- High-Fidelity Modal Overlay --- */
+.feeds-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.6); /* Darker overlay for focus */
+  backdrop-filter: blur(8px); /* High-fidelity blur */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* --- Modal Window Geometry --- */
+.feeds-modal-window {
+  background: white;
+  width: 95%;
+  max-width: 550px;
+  padding: 40px;
+  border-radius: 28px; /* Smooth rounded corners */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+/* --- Header & Close Button --- */
+.feeds-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.feeds-modal-header h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.02em;
+}
+
+.feeds-modal-close {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 6px;
+  color: #111827;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feeds-modal-close:hover {
+  background: #e2e8f0;
+}
+
+/* --- Form Fields --- */
+.feeds-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.feeds-form-field label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.feeds-form-select, 
+.feeds-form-textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #e2e8f0; /* Thicker borders for Next.js look */
+  border-radius: 14px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #ffffff;
+  transition: border-color 0.2s;
+}
+
+.feeds-form-select:focus, 
+.feeds-form-textarea:focus {
+  outline: none;
+  border-color: #b11317; /* Thapar Red focus */
+}
+
+/* --- Modal Footer Buttons --- */
+.feeds-modal-footer {
+  display: flex;
+  justify-content: flex-start; /* Matches Next.js left-alignment */
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.feeds-btn-submit {
+  background: #b11317; /* Solid Thapar Red */
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.feeds-btn-submit:hover {
+  background: #8e0f12;
+  transform: translateY(-1px);
+}
+
+.feeds-btn-cancel {
+  background: #f1f5f9;
+  color: #64748b;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.feeds-btn-cancel:hover {
+  background: #e2e8f0;
+}
+.feed-top-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.feed-delete-btn {
+  background: none;
+  border: none;
+  color: #94a3b8; /* Subtle grey */
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feed-delete-btn:hover {
+  background: #fee2e2; /* Light red bg */
+  color: #b11317; /* Thapar Red icon */
+}

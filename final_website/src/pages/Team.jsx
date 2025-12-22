@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Mail, Linkedin, Github } from 'lucide-react';
-import teamData from '../static/teamData';
-import './Team.css';
+import React, { useState } from "react";
+import { Mail, Linkedin, Github } from "lucide-react";
+import teamData from "../static/teamData";
+import "./Team.css";
 
 const AvatarWithFallback = ({ src, initials, alt }) => {
   const [imgError, setImgError] = useState(false);
@@ -9,10 +9,10 @@ const AvatarWithFallback = ({ src, initials, alt }) => {
   return (
     <div className="team-avatar-circle">
       {!imgError && src ? (
-        <img 
-          src={src} 
-          alt={alt} 
-          onError={() => setImgError(true)} 
+        <img
+          src={src}
+          alt={alt}
+          onError={() => setImgError(true)}
           className="team-avatar-img"
         />
       ) : (
@@ -34,19 +34,33 @@ export default function Team() {
       <section className="team-section-compact">
         <h2 className="team-section-title">Project Supervisors</h2>
         <div className="supervisor-grid">
-          {teamData.supervisors.map(member => (
+          {teamData.supervisors.map((member) => (
             <div key={member.id} className="supervisor-card-horizontal">
-              <AvatarWithFallback src={member.image} initials={member.initials} alt={member.name} />
+              <AvatarWithFallback
+                src={member.image}
+                initials={member.initials}
+                alt={member.name}
+              />
               <div className="member-details">
                 <h3 className="member-name-compact">{member.name}</h3>
                 <p className="member-role-compact">{member.role}</p>
-                <div className="member-socials-row">
-                  <a href={member.email} className="social-pill">
-                    <Mail size={18} /> <span>Email</span>
+                <div className="member-contact-actions">
+                  {/* LinkedIn Action Button */}
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="member-action-pill linkedin"
+                  >
+                    <Linkedin size={16} strokeWidth={2.5} />
+                    <span>LinkedIn</span>
                   </a>
-                  <a href={member.linkedin} className="social-pill">
-                    <Linkedin size={18} /> <span>LinkedIn</span>
-                  </a>
+
+                  {/* Email Action Box */}
+                  <div className="member-action-pill email">
+                    <Mail size={16} strokeWidth={2.5} />
+                    <span className="email-text">{member.email}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -55,26 +69,33 @@ export default function Team() {
       </section>
 
       {/* Development Team - LARGER VERTICAL CARDS */}
-      <section className="team-section-compact">
-        <h2 className="team-section-title">Development Team</h2>
-        <div className="student-grid">
-          {teamData.students.map(member => (
-            <div key={member.id} className="developer-card-vertical">
-              <AvatarWithFallback src={member.image} initials={member.initials} alt={member.name} />
-              <h3 className="member-name-compact">{member.name}</h3>
-              <p className="member-role-compact">{member.role}</p>
-              <div className="member-socials-row">
-                <a href={member.linkedin} className="social-pill">
-                  <Linkedin size={18} /> <span>LinkedIn</span>
-                </a>
-                <a href={member.github} className="social-pill">
-                  <Github size={18} /> <span>GitHub</span>
-                </a>
-              </div>
-            </div>
-          ))}
+      {/* Development Team Section */}
+<section className="team-section-compact">
+  <h2 className="team-section-title">Development Team</h2>
+  <div className="student-grid">
+    {teamData.students.map((member) => (
+      <div key={member.id} className="developer-card-vertical">
+        <AvatarWithFallback
+          src={member.image}
+          initials={member.initials}
+          alt={member.name}
+        />
+        <h3 className="member-name-compact">{member.name}</h3>
+        <p className="member-role-compact">{member.role}</p>
+        
+        {/* Responsive row */}
+        <div className="member-socials-row">
+          <a href={member.linkedin} target="_blank" className="social-pill">
+            <Linkedin size={16} strokeWidth={2.5} /> <span>LinkedIn</span>
+          </a>
+          <a href={member.github} target="_blank" className="social-pill">
+            <Github size={16} strokeWidth={2.5} /> <span>GitHub</span>
+          </a>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="team-footer-simple">
@@ -83,7 +104,11 @@ export default function Team() {
         </div>
         <div className="footer-about-text">
           <h3>About TIET Nexus</h3>
-          <p>TIET Nexus is a comprehensive campus platform developed as a final year project by Computer Science students at Thapar Institute of Engineering & Technology.</p>
+          <p>
+            TIET Nexus is a comprehensive campus platform developed as a final
+            year project by Computer Science students at Thapar Institute of
+            Engineering & Technology.
+          </p>
         </div>
       </footer>
     </div>

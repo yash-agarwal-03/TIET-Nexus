@@ -16,7 +16,11 @@
 }
 
 .lnf-header-text h1 {
-  font-size: 32px;
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 16px;
+  letter-spacing: -0.025em;
 }
 
 .lnf-header-text p {
@@ -25,7 +29,7 @@
 }
 
 .lnf-header-text span {
-  font-size: 13px;
+  font-size: 14px;
   color: #777;
 }
 
@@ -66,7 +70,8 @@
 
 /* ===== INFO TEXT ===== */
 .lnf-info-text {
-  font-size: 13px;
+  font-size: 16px;
+  font-style: italic;
   color: #777;
   margin-bottom: 12px;
 }
@@ -104,9 +109,11 @@
 
 /* ===== CARD CONTENT ===== */
 .lnf-card-desc {
-  font-size: 14px;
+  font-size: 16px;
+  /* font-weight: 300; */
   color: #333;
-  line-height: 1.5;
+  line-height: 1;
+  margin-bottom: 0;
 }
 
 .lnf-card-meta {

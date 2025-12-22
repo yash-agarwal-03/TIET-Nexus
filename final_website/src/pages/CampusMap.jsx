@@ -1,25 +1,55 @@
-import React from 'react';
-import PageHeader from '../components/PageHeader';
+import React from "react";
+import { Download, Maximize2, Map as MapIcon } from "lucide-react";
+import "./CampusMap.css";
 
-export default function CampusMap() {
+export default function Map() {
+  const handleDownload = () => {
+    // Assuming the map is named CampusMap.png in your public folder
+    const link = document.createElement("a");
+    link.href = "/CampusMap.png"; 
+    link.download = "TIET_Campus_Map.png";
+    link.click();
+  };
+
   return (
-    <div>
-      <PageHeader
-        title="Campus Map"
-        subtitle="Navigate the campus with our interactive map (placeholder)."
-      />
+    <div className="map-page-wrapper">
+      <div className="map-container">
+        <header className="map-header">
+          <div className="map-header-content">
+            <div className="map-title-row">
+              <MapIcon className="map-icon-red" size={32} />
+              <h1 className="map-page-title">Campus Navigator</h1>
+            </div>
+            <p className="map-page-subtitle">
+              Navigate through Thapar Institute of Engineering & Technology
+            </p>
+          </div>
+          
+          <div className="map-actions">
+            <button className="map-btn-secondary" onClick={() => window.open('/CampusMap.png', '_blank')}>
+              <Maximize2 size={18} />
+              <span>Full View</span>
+            </button>
+            <button className="map-btn-primary" onClick={handleDownload}>
+              <Download size={18} />
+              <span>Download Map</span>
+            </button>
+          </div>
+        </header>
 
-      <div className="grid-2">
-        <div className="card map-area">Interactive Campus Map (placeholder)</div>
-        <div className="card">
-          <h3 style={{ marginTop: 0 }}>Search building</h3>
-          <input placeholder="Enter building name" style={{ width: '100%', padding: '10px 12px', borderRadius: 10, border: '1px solid #e5e7eb' }} />
-          <div style={{ height: 10 }} />
-          <button className="button primary" style={{ width: '100%' }}>Search</button>
-        </div>
+        <main className="map-viewer-card">
+          <div className="map-image-container">
+            <img 
+              src="/CampusMap.png" 
+              alt="TIET Campus Map" 
+              className="campus-static-image"
+            />
+          </div>
+          <div className="map-viewer-footer">
+            <p>Tip: You can right-click the image to save it or use the download button above.</p>
+          </div>
+        </main>
       </div>
     </div>
   );
 }
-
-

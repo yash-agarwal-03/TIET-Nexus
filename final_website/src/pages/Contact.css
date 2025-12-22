@@ -1,0 +1,199 @@
+.contact-page-wrapper {
+  background-color: #fffafa;
+  min-height: 100vh;
+  padding: 60px 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.contact-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.contact-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 16px;
+  letter-spacing: -0.025em;
+}
+
+.contact-subtitle {
+  font-size: 1.2rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 0;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+}
+
+.contact-info-section {
+  background: #b11317;
+  padding: 50px 40px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-heading {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.sub-section-title {
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 25px 0 12px 0;
+  border-bottom: 2px solid #eab308; /* Yellow underline matching reference */
+  width: fit-content;
+  padding-bottom: 4px;
+}
+
+.info-group-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 8px;
+}
+
+.icon-white {
+  color: white;
+  opacity: 0.9;
+}
+
+.info-text p {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.contact-form-section {
+  padding: 60px 50px;
+  background: white;
+}
+
+.nexus-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.input-group input, 
+.input-group textarea {
+  padding: 14px 18px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: #f8fafc;
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+  outline: none;
+  border-color: #b11317;
+  background: white;
+}
+
+.contact-submit-btn {
+  background: #b11317;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.contact-submit-btn:hover {
+  background: #8e0f12;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
+.info-map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: #ffffff; /* Contrast against the red background */
+  color: #b11317; /* Thapar Red text */
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 99px; /* Pill shape */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+}
+
+.info-map-link:hover {
+  background-color: #f8fafc;
+  transform: translateY(-3px); /* High-fidelity hover lift */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  color: #8e0f12;
+}
+
+.info-map-link svg {
+  transition: transform 0.3s ease;
+}
+
+.info-map-link:hover svg {
+  transform: scale(1.1);
+}
+
+/* If you are placing it inside the RED info section, use this variation */
+.contact-info-section .info-map-link {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}

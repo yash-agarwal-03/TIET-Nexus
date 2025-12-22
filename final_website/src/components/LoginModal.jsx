@@ -8,7 +8,7 @@ import { googleLogin } from "../api/auth.api";
 const ROLES = [
   { key: "STUDENT", label: "Student", icon: GraduationCap },
   { key: "SOCIETY_ADMIN", label: "Society Admin", icon: Users },
-  { key: "LNF_ADMIN", label: "LNF Admin", icon: Shield },
+  { key: "LNF_ADMIN", label: "Lost & Found Admin", icon: Shield },
   { key: "THAPAR_ADMIN", label: "Thapar Admin", icon: Shield },
 ];
 

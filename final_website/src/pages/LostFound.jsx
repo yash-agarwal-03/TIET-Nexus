@@ -190,8 +190,8 @@ const handleReportLost = async (data) => {
         <div className="lnf-header-text">
           <h1>Lost & Found</h1>
           <p>Report lost items and check items found on campus</p>
-          <span>
-            All claims are verified physically at the Lost & Found office.
+          <span className="lnf-info-text">
+            * All claims are verified physically at the Lost & Found office.
           </span>
         </div>
 
