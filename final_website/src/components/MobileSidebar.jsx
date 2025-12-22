@@ -11,7 +11,7 @@ const navItems = [
   { name: "Welcome", to: "/", icon: Home },
   { name: "Explore", to: "/explore", icon: Compass },
   { name: "Campus Map", to: "/map", icon: Map },
-  { name: "Thapar AI", to: "/ai", icon: Bot },
+  { name: "Thapar AI", to: "https://tiet-nexus-rag-chatbot.streamlit.app/", icon: Bot, isExternal: true },
   { name: "Feeds", to: "/feeds", icon: Rss },
   { name: "Lost & Found", to: "/lost-found", icon: Search },
   { name: "Contact Us", to: "/contact", icon: Phone },
@@ -75,17 +75,32 @@ export default function MobileSidebar({ isOpen, onClose }) {
         {/* Navigation Menu List */}
         <nav className="msb-nav">
           <ul>
-            {navItems.map(({ name, to, icon: Icon }) => (
+            {navItems.map(({ name, to, icon: Icon, isExternal }) => (
               <li key={name}>
-                <NavLink
-                  to={to}
-                  end={to === "/"}
-                  className={({ isActive }) => `msb-link ${isActive ? "active" : ""}`}
-                  onClick={onClose}
-                >
-                  <Icon size={22} className="msb-icon" />
-                  <span>{name}</span>
-                </NavLink>
+                {isExternal ? (
+                  /* Render external link for Thapar AI */
+                  <a
+                    href={to}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="msb-link"
+                    onClick={onClose}
+                  >
+                    <Icon size={22} className="msb-icon" />
+                    <span>{name}</span>
+                  </a>
+                ) : (
+                  /* Render internal NavLink for all other pages */
+                  <NavLink
+                    to={to}
+                    end={to === "/"}
+                    className={({ isActive }) => `msb-link ${isActive ? "active" : ""}`}
+                    onClick={onClose}
+                  >
+                    <Icon size={22} className="msb-icon" />
+                    <span>{name}</span>
+                  </NavLink>
+                )}
               </li>
             ))}
           </ul>

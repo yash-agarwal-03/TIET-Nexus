@@ -4,9 +4,9 @@ import "./CampusMap.css";
 
 export default function Map() {
   const handleDownload = () => {
-    // Assuming the map is named CampusMap.png in your public folder
+    // Assuming the map is named CampusMap.jpeg in your public folder
     const link = document.createElement("a");
-    link.href = "/CampusMap.png"; 
+    link.href = "/CampusMap.jpeg"; 
     link.download = "TIET_Campus_Map.png";
     link.click();
   };
@@ -26,7 +26,7 @@ export default function Map() {
           </div>
           
           <div className="map-actions">
-            <button className="map-btn-secondary" onClick={() => window.open('/CampusMap.png', '_blank')}>
+            <button className="map-btn-secondary" onClick={() => window.open('/CampusMap.jpeg', '_blank')}>
               <Maximize2 size={18} />
               <span>Full View</span>
             </button>
@@ -40,7 +40,7 @@ export default function Map() {
         <main className="map-viewer-card">
           <div className="map-image-container">
             <img 
-              src="/CampusMap.png" 
+              src="/CampusMap.jpeg" 
               alt="TIET Campus Map" 
               className="campus-static-image"
             />

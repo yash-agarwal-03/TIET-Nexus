@@ -1,7 +1,6 @@
-// Sidebar.jsx
 import "./Sidebar.css";
 import { NavLink, useLocation } from "react-router-dom";
-import { X, LogIn, LogOut } from "lucide-react";
+import { X } from "lucide-react";
 import {
   Home,
   Compass,
@@ -15,11 +14,17 @@ import { useAuth } from "../context/AuthContext";
 import { useModal } from "../context/ModalContext";
 import LoginButton from "./LoginButton";
 
+// Updated navigation array with isExternal flag for Thapar AI
 const navigation = [
   { name: "Welcome", href: "/", icon: Home },
   { name: "Explore", href: "/explore", icon: Compass },
   { name: "Campus Map", href: "/map", icon: Map },
-  { name: "Thapar AI", href: "/ai", icon: Bot },
+  { 
+    name: "Thapar AI", 
+    href: "https://tiet-nexus-rag-chatbot.streamlit.app/", // Replace with your actual URL
+    icon: Bot, 
+    isExternal: true 
+  },
   { name: "Feeds", href: "/feeds", icon: Rss },
   { name: "Lost & Found", href: "/lost-found", icon: Users },
   { name: "Contact Us", href: "/contact", icon: Phone },
@@ -28,18 +33,19 @@ const navigation = [
 
 export default function Sidebar({ isOpen, onClose }) {
   const location = useLocation();
-  const { user, isLoggedIn, logout } = useAuth();
-  const { openLogin } = useModal();
+  const { user, isLoggedIn } = useAuth();
+
   // Helper to translate roles
-const getRoleLabel = (role) => {
-  const labels = {
-    STUDENT: "Student",
-    LNF_ADMIN: "Lost & Found Admin",
-    THAPAR_ADMIN: "Thapar Admin",
-    SOCIETY_ADMIN: "Society Admin",
+  const getRoleLabel = (role) => {
+    const labels = {
+      STUDENT: "Student",
+      LNF_ADMIN: "Lost & Found Admin",
+      THAPAR_ADMIN: "Thapar Admin",
+      SOCIETY_ADMIN: "Society Admin",
+    };
+    return labels[role] || "Guest";
   };
-  return labels[role] || "Guest";
-};
+
   const initials = user?.name
     ? user.name
         .split(" ")
@@ -57,37 +63,59 @@ const getRoleLabel = (role) => {
         <span className="sb-logo-text">TIET Nexus</span>
       </div>
 
-      {/* Profile */}
+      {/* Profile Section */}
       <div className="sb-profile-wrapper">
-  <div className="sb-profile">
-    <div className="sb-avatar">{initials}</div>
-    <div className="sb-profile-info">
-      <p className="sb-name">{isLoggedIn ? user.name : "Guest"}</p>
-      <p className="sb-role-label">
-        {isLoggedIn ? getRoleLabel(user.role) : "Signed in as Guest"}
-      </p>
-    </div>
-  </div>
-  <div className="sb-auth-wrapper">
-    <LoginButton />
-  </div>
-</div>
+        <div className="sb-profile">
+          <div className="sb-avatar">{initials}</div>
+          <div className="sb-profile-info">
+            <p className="sb-name">{isLoggedIn ? user.name : "Guest"}</p>
+            <p className="sb-role-label">
+              {isLoggedIn ? getRoleLabel(user.role) : "Signed in as Guest"}
+            </p>
+          </div>
+        </div>
+        <div className="sb-auth-wrapper">
+          <LoginButton />
+        </div>
+      </div>
 
-      {/* Nav */}
+      {/* Navigation */}
       <nav className="sb-nav">
         <ul>
-          {navigation.map(({ name, href, icon: Icon }) => {
+          {navigation.map(({ name, href, icon: Icon, isExternal }) => {
             const active = location.pathname === href;
+            
+            // Common inner content for both NavLink and anchor tags
+            const linkInner = (
+              <>
+                <Icon size={22} />
+                <span>{name}</span>
+              </>
+            );
+
             return (
               <li key={name}>
-                <NavLink
-                  to={href}
-                  className={`sb-link ${active ? "active" : ""}`}
-                  onClick={onClose}
-                >
-                  <Icon size={22} />
-                  <span>{name}</span>
-                </NavLink>
+                {isExternal ? (
+                  // Render standard anchor for external website
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sb-link"
+                    onClick={onClose}
+                  >
+                    {linkInner}
+                  </a>
+                ) : (
+                  // Render NavLink for internal routing
+                  <NavLink
+                    to={href}
+                    className={`sb-link ${active ? "active" : ""}`}
+                    onClick={onClose}
+                  >
+                    {linkInner}
+                  </NavLink>
+                )}
               </li>
             );
           })}
@@ -98,12 +126,12 @@ const getRoleLabel = (role) => {
 
   return (
     <>
-      {/* Desktop */}
+      {/* Desktop View */}
       <aside className="sb-desktop">
         <Content />
       </aside>
 
-      {/* Mobile */}
+      {/* Mobile View */}
       <aside className={`sb-mobile ${isOpen ? "open" : ""}`}>
         <div className="sb-mobile-header">
           <span>TIET Nexus</span>

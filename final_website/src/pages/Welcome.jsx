@@ -4,12 +4,19 @@ import './Welcome.css';
 
 export default function Welcome() {
   
-  // Feature data for the mapping
+  // Feature data updated with isExternal flag
   const features = [
     { icon: Map, title: 'Campus Map', text: 'Navigate the campus with our interactive map', path: '/campus-map' },
     { icon: Rss, title: 'Campus Feeds', text: 'Stay updated with the latest campus news', path: '/feeds' },
     { icon: Users, title: 'Explore Societies', text: 'Discover clubs and societies that match your interests', path: '/explore' },
-    { icon: Bot, title: 'Thapar AI', text: 'Get instant answers to your campus questions', path: '/thapar-ai' },
+    // Update path to your external URL and add isExternal: true
+    { 
+      icon: Bot, 
+      title: 'Thapar AI', 
+      text: 'Get instant answers to your campus questions', 
+      path: 'https://tiet-nexus-rag-chatbot.streamlit.app/', 
+      isExternal: true 
+    },
   ];
 
   return (
@@ -18,7 +25,6 @@ export default function Welcome() {
       <div className="hero-section">
         <div className="container hero-container">
           <div className="hero-content">
-            {/* College Logo */}
             <div className="hero-logo-wrapper">
               <div className="hero-logo-circle">
                 <img
@@ -62,7 +68,14 @@ export default function Welcome() {
             {features.map((f) => {
               const Icon = f.icon;
               return (
-                <a key={f.title} href={f.path} className="feature-card">
+                <a 
+                  key={f.title} 
+                  href={f.path} 
+                  className="feature-card"
+                  // Conditionally add target and rel for external links
+                  target={f.isExternal ? "_blank" : "_self"}
+                  rel={f.isExternal ? "noopener noreferrer" : ""}
+                >
                   <div className="feature-content">
                     <Icon className="feature-icon" size={40} aria-hidden="true" />
                     <h3 className="feature-title">{f.title}</h3>
@@ -97,16 +110,12 @@ export default function Welcome() {
 
             <div className="about-image-column">
               <div className="image-wrapper">
-                {/* Base image */}
                 <img
                   src="src/static/logos/tiet-base.jpg"
                   alt="Thapar Institute Campus"
                   className="base-image"
                 />
-                
-                {/* Glass overlay */}
                 <div className="glass-overlay">
-                  {/* Large horizontal logo on glass */}
                   <div className="glass-logo-wrapper">
                     <img
                       src="src/static/logos/tiet_transparent.png"
