@@ -5,7 +5,9 @@ import streamlit as st
 load_dotenv()
 
 # Embedding model
-EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+#EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+
 
 #CHROMA_DB_PATH = "./chroma_db"
 

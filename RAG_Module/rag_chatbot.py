@@ -4,7 +4,10 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
-from langchain_huggingface import HuggingFaceEmbeddings
+
+#from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import SentenceTransformerEmbeddings
+
 from dotenv import load_dotenv
 from config import (
     EMBEDDING_MODEL,
@@ -48,10 +51,14 @@ def check_vector_db():
     
     try:
         #embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
-        embeddings = HuggingFaceEmbeddings(
-             model_name=EMBEDDING_MODEL,
-             model_kwargs={"device": "cpu"}
+        # embeddings = HuggingFaceEmbeddings(
+        #      model_name=EMBEDDING_MODEL,
+        #      model_kwargs={"device": "cpu"}
+        # )
+        embeddings = SentenceTransformerEmbeddings(
+            model_name=EMBEDDING_MODEL
         )
+
 
         db = Chroma(
             persist_directory=CHROMA_DB_PATH,
@@ -67,10 +74,14 @@ def check_vector_db():
 def load_vector_db():
     """Load existing vector DB"""
     #embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
-    embeddings = HuggingFaceEmbeddings(
-        model_name=EMBEDDING_MODEL,
-        model_kwargs={"device": "cpu"}
+    # embeddings = HuggingFaceEmbeddings(
+    #     model_name=EMBEDDING_MODEL,
+    #     model_kwargs={"device": "cpu"}
+    # )
+    embeddings = SentenceTransformerEmbeddings(
+        model_name=EMBEDDING_MODEL
     )
+
 
 
     vectorstore = Chroma(
