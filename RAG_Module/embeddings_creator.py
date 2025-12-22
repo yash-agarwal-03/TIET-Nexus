@@ -21,7 +21,12 @@ def check_vector_db_exists():
     """Check if Chroma DB is already populated"""
     if os.path.exists(CHROMA_DB_PATH):
         try:
-            embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+            #embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+            embeddings = HuggingFaceEmbeddings(
+                model_name=EMBEDDING_MODEL,
+                model_kwargs={"device": "cpu"}
+            )
+
             db = Chroma(persist_directory=CHROMA_DB_PATH, embedding_function=embeddings)
             # Check if collection has documents
             collection = db._collection
@@ -38,8 +43,13 @@ def create_vector_db(pdf_paths: list):
     print("\n🔄 Starting embedding creation...\n")
     
     # Initialize embeddings
-    embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
-    
+    #embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+    embeddings = HuggingFaceEmbeddings(
+        model_name=EMBEDDING_MODEL,
+        model_kwargs={"device": "cpu"}
+    )
+
+
     # Load documents
     documents = []
     for pdf_path in pdf_paths:

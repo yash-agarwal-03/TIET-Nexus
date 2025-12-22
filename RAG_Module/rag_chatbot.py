@@ -47,7 +47,12 @@ def check_vector_db():
         return False, "Vector DB not found"
     
     try:
-        embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+        #embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+        embeddings = HuggingFaceEmbeddings(
+             model_name=EMBEDDING_MODEL,
+             model_kwargs={"device": "cpu"}
+        )
+
         db = Chroma(
             persist_directory=CHROMA_DB_PATH,
             embedding_function=embeddings
@@ -61,7 +66,13 @@ def check_vector_db():
 
 def load_vector_db():
     """Load existing vector DB"""
-    embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+    #embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+    embeddings = HuggingFaceEmbeddings(
+        model_name=EMBEDDING_MODEL,
+        model_kwargs={"device": "cpu"}
+    )
+
+
     vectorstore = Chroma(
         persist_directory=CHROMA_DB_PATH,
         embedding_function=embeddings
