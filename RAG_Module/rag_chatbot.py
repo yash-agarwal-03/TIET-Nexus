@@ -9,32 +9,52 @@ from langchain_groq import ChatGroq
 from langchain_community.embeddings import SentenceTransformerEmbeddings
 
 from dotenv import load_dotenv
-from config import (
-    EMBEDDING_MODEL,
-    CHROMA_DB_PATH,
-    LLM_MODEL,
-    GROQ_API_KEY
-)
+# from config import (
+#     EMBEDDING_MODEL,
+#     CHROMA_DB_PATH,
+#     LLM_MODEL,
+#     GROQ_API_KEY
+# )
 
 # Load environment variables from .env
-load_dotenv()
+# load_dotenv()
 
 # # Set environment variables
 # os.environ['HUGGINGFACE_API_KEY'] = HUGGINGFACE_API_KEY
 # GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-import streamlit as st
-from config import (
-    EMBEDDING_MODEL,
-    CHROMA_DB_PATH,
-    LLM_MODEL,
-    HUGGINGFACE_API_KEY,
-    GROQ_API_KEY
-)
+# import streamlit as st
+
+
+
+# from config import (
+#     EMBEDDING_MODEL,
+#     CHROMA_DB_PATH,
+#     LLM_MODEL,
+#     HUGGINGFACE_API_KEY,
+#     GROQ_API_KEY
+# )
 
 # if HUGGINGFACE_API_KEY:
 #     os.environ["HUGGINGFACE_API_KEY"] = HUGGINGFACE_API_KEY
 
+import streamlit as st
+import os
+from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain_chroma import Chroma
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_groq import ChatGroq
+from langchain_community.embeddings import SentenceTransformerEmbeddings
+from dotenv import load_dotenv
+
+load_dotenv()
+
+from config import (
+    EMBEDDING_MODEL,
+    CHROMA_DB_PATH,
+    LLM_MODEL,
+    GROQ_API_KEY
+)
 
 # Check if Groq API key exists
 if not GROQ_API_KEY:
