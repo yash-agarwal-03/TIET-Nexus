@@ -4,7 +4,7 @@ A unified digital platform for Thapar Institute, combining all essential campus 
 
 ---
 
-### ✨ [View the Live Project](https://tietnexus.vercel.app/) ✨
+### ✨ [View the Live Project](https://tiet-nexus.vercel.app/) ✨
 
 ---
 
