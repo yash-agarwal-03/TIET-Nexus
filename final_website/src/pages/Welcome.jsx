@@ -6,7 +6,7 @@ export default function Welcome() {
   
   // Feature data updated with isExternal flag
   const features = [
-    { icon: Map, title: 'Campus Map', text: 'Navigate the campus with our interactive map', path: '/campus-map' },
+    { icon: Map, title: 'Campus Map', text: 'Navigate the campus with our interactive map', path: '/map' },
     { icon: Rss, title: 'Campus Feeds', text: 'Stay updated with the latest campus news', path: '/feeds' },
     { icon: Users, title: 'Explore Societies', text: 'Discover clubs and societies that match your interests', path: '/explore' },
     // Update path to your external URL and add isExternal: true
@@ -104,7 +104,7 @@ export default function Welcome() {
                 continues to shape the future of engineering and technology education.
               </p>
               <div className="about-cta">
-                <a href="/contact" className="btn btn-outline">Learn More</a>
+                <a href="/contact" className="btn btn-outline">Contact Us</a>
               </div>
             </div>
 
