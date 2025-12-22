@@ -9,7 +9,7 @@ import cleanupPendingLostTickets from "./utils/pendingTicketsCleanup.js";
 dotenv.config();
 
 const app = express();
-const PORT= process.env.PORT;
+const PORT= process.env.PORT || 5000;
 //DB CONNECTION FUNCTION CALLED
 connectToDB();
 console.log("JWT_SECRET loaded:", !!process.env.JWT_SECRET);
@@ -29,6 +29,9 @@ app.use(express.json({ limit: "2mb" }));
 app.use(express.urlencoded({ extended: true, limit: "2mb" }));
 
 app.use(cors());
+app.get("/", (req, res) => {
+  res.send("Backend is alive");
+});
 
 // ROUTES
 app.use('/',routes);
