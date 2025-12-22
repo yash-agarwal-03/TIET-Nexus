@@ -13,7 +13,7 @@ from config import (
     EMBEDDING_MODEL,
     CHROMA_DB_PATH,
     LLM_MODEL,
-    HUGGINGFACE_API_KEY
+    GROQ_API_KEY
 )
 
 # Load environment variables from .env
@@ -32,8 +32,8 @@ from config import (
     GROQ_API_KEY
 )
 
-if HUGGINGFACE_API_KEY:
-    os.environ["HUGGINGFACE_API_KEY"] = HUGGINGFACE_API_KEY
+# if HUGGINGFACE_API_KEY:
+#     os.environ["HUGGINGFACE_API_KEY"] = HUGGINGFACE_API_KEY
 
 
 # Check if Groq API key exists
