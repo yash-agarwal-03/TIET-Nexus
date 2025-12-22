@@ -28,7 +28,7 @@ export default function Welcome() {
             <div className="hero-logo-wrapper">
               <div className="hero-logo-circle">
                 <img
-                  src="src/static/logos/tiet.png"
+                  src="/tiet.png"
                   alt="Thapar Institute Logo"
                   className="hero-logo-img"
                 />
@@ -111,14 +111,14 @@ export default function Welcome() {
             <div className="about-image-column">
               <div className="image-wrapper">
                 <img
-                  src="src/static/logos/tiet-base.jpg"
+                  src="/tiet-base.jpg"
                   alt="Thapar Institute Campus"
                   className="base-image"
                 />
                 <div className="glass-overlay">
                   <div className="glass-logo-wrapper">
                     <img
-                      src="src/static/logos/tiet_transparent.png"
+                      src="/tiet_transparent.png"
                       alt="TIET Logo"
                       className="glass-logo-img"
                     />
