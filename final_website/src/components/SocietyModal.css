@@ -1,0 +1,241 @@
+/* SocietyModal.css - Exact Next.js Replica */
+
+.society-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  padding: 20px;
+}
+
+.society-modal-content {
+  background: white;
+  border-radius: 12px; /* Less round borders */
+  padding: 32px;
+  width: 100%;
+  max-width: 56rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.society-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.society-modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+.society-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Vertically centers the name relative to the logo */
+  margin-bottom: 32px;
+  gap: 20px;
+}
+
+.society-modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 8px 0;
+}
+
+.society-modal-tag {
+  display: inline-block;
+  background: #fdecea;
+  color: #B11317;
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.society-logo-container {
+  width: 100px;  /* Fixed width as requested */
+  height: 120px; /* Fixed height as requested */
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Prevents the logo from squishing */
+}
+
+.society-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures base64 images maintain aspect ratio inside the box */
+}
+/* Section Styling */
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.modal-description-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.society-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 24px 0;
+  
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;padding: 5px 0px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.red-icon { color: #B11317; flex-shrink: 0; }
+
+.society-modal-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 24px 0;
+}
+
+/* Exec Team */
+.exec-team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.exec-member-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.exec-avatar-fallback {
+  width: 44px;
+  height: 44px;
+  background: #fee2e2;
+  color: #B11317;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.exec-name { font-weight: 600; color: #111827; margin: 0; font-size: 14px; }
+.exec-role { font-size: 13px; color: #6b7280; margin: 2px 0; }
+.exec-email { font-size: 12px; color: #9ca3af; margin: 0; }
+
+/* Activities & Achievements */
+.activities-achievements-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.custom-list {
+  list-style: none;
+  padding: 0;
+}
+
+.custom-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 8px;
+}
+
+.dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+.red-dot { background: #B11317; }
+
+/* Events - All Red Theme */
+.event-row-card {
+  background: #fff5f6;
+  border: 1px solid #fdecea;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.event-row-title { font-weight: 600; color: #B11317; margin-bottom: 6px; }
+.event-row-meta { font-size: 13px; color: #6b7280; display: flex; gap: 12px; }
+
+/* Footer */
+.society-modal-footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.social-links-row { display: flex; gap: 12px; }
+
+.social-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #374151;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .society-info-grid, .exec-team-grid, .activities-achievements-container {
+    grid-template-columns: 1fr;
+  }
+  .society-modal-content { padding: 20px; }
+}
+@media (max-width: 640px) {
+  .society-modal-header {
+    flex-direction: column-reverse; /* Stacks logo above text on small screens */
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .society-logo-container {
+    /* Proportional shrink: roughly 70% of PC size */
+    align-self: center;
+    width: 90px; 
+    height: 100px;
+    padding: 6px;
+  }
+
+  .society-modal-title {
+    font-size: 20px; /* Slightly smaller for mobile */
+  }
+}

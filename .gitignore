@@ -1,4 +1,6 @@
 /frontend
+.env
+node_modules
 # Python virtual environment
 env/
 venv/

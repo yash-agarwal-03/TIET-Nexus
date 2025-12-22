@@ -1,0 +1,444 @@
+/* =========================
+   LostFound.css — FINAL
+   ========================= */
+
+.lnf-page {
+  padding: 24px 32px;
+  width: 100%;
+}
+
+/* ===== HEADER ===== */
+.lnf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.lnf-header-text h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 16px;
+  letter-spacing: -0.025em;
+}
+
+.lnf-header-text p {
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+.lnf-header-text span {
+  font-size: 14px;
+  color: #777;
+}
+
+.lnf-header-actions {
+  min-height: 44px;
+}
+
+/* ===== PRIMARY BUTTON ===== */
+.primary-btn {
+  background: #b11226;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ===== TABS ===== */
+.lnf-tabs {
+  display: flex;
+  gap: 24px;
+  margin: 24px 0 16px;
+}
+
+.lnf-tabs button {
+  background: none;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  padding-bottom: 6px;
+}
+
+.lnf-tabs button.active {
+  border-bottom: 2px solid #b11226;
+  font-weight: 600;
+}
+
+/* ===== INFO TEXT ===== */
+.lnf-info-text {
+  font-size: 16px;
+  font-style: italic;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+/* ===== SCROLLABLE GRID ===== */
+.lnf-grid-wrapper {
+  height: calc(100vh - 260px);
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* ===== GRID ===== */
+.lnf-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* ===== CARD ===== */
+.lnf-card {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.lnf-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ===== CARD CONTENT ===== */
+.lnf-card-desc {
+  font-size: 16px;
+  /* font-weight: 300; */
+  color: #333;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.lnf-card-meta {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ===== CARD ACTIONS ===== */
+.lnf-card-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 8px;
+}
+
+/* ===== ADMIN BUTTONS ===== */
+.btn-approve {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid #b11226;
+  color: #b11226;
+  padding: 8px 0;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn-reject {
+  flex: 1;
+  background: #b11226;
+  color: #ffffff;
+  border: none;
+  padding: 8px 0;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* ===== GUEST ===== */
+.lnf-guest-block {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* ===== MODAL ===== */
+.lnf-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.lnf-modal {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 320px;
+}
+
+.lnf-modal h3 {
+  margin-bottom: 8px;
+}
+
+.lnf-modal p {
+  font-size: 14px;
+  color: #555;
+}
+
+.lnf-modal-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .lnf-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .lnf-page {
+    padding: 16px;
+  }
+
+  .lnf-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .lnf-header-text h1 {
+    font-size: 24px;
+  }
+
+  .lnf-tabs {
+    gap: 16px;
+    font-size: 14px;
+  }
+
+  .lnf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lnf-card {
+    padding: 14px;
+  }
+
+  .lnf-card-actions {
+    flex-direction: column;
+  }
+
+  .btn-approve,
+  .btn-reject {
+    width: 100%;
+  }
+
+  .lnf-grid-wrapper {
+    height: calc(100vh - 220px);
+  }
+}
+
+/* ===== CONFIRMATION MODAL — FINAL STYLES ===== */
+
+.lnf-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+}
+
+.lnf-modal {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px 22px;
+  width: 320px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.lnf-modal h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.lnf-modal p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+}
+
+.lnf-modal-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Buttons */
+.lnf-modal-actions .btn-outline {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  color: #333;
+  padding: 8px 0;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.lnf-modal-actions .btn-danger {
+  flex: 1;
+  background: #b11226;
+  color: #ffffff;
+  border: none;
+  padding: 8px 0;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* Animation */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .lnf-modal {
+    width: 90%;
+    padding: 18px;
+  }
+}
+
+/* ===== ADD FOUND ITEM MODAL – UI UPGRADE ===== */
+
+.lnf-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 26px;
+  width: 380px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  animation: modalPop 0.25s ease-out;
+}
+
+/* Header */
+.lnf-modal h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.lnf-modal::before {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+/* Inputs */
+.lnf-modal textarea,
+.lnf-modal input {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.lnf-modal textarea {
+  min-height: 100px;
+  resize: none;
+}
+
+.lnf-modal textarea:focus,
+.lnf-modal input:focus {
+  background: #ffffff;
+  border-color: #b11226;
+  box-shadow: 0 0 0 3px rgba(177, 18, 38, 0.12);
+}
+
+/* Placeholder tone */
+.lnf-modal textarea::placeholder,
+.lnf-modal input::placeholder {
+  color: #aaa;
+}
+
+/* Actions */
+.lnf-modal-actions {
+  margin-top: 22px;
+  display: flex;
+  gap: 14px;
+}
+
+.lnf-modal-actions .btn-outline {
+  flex: 1;
+  background: #f5f5f5;
+  border: none;
+  color: #444;
+  padding: 12px 0;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.lnf-modal-actions .btn-outline:hover {
+  background: #eaeaea;
+}
+
+.lnf-modal-actions .btn-danger {
+  flex: 1;
+  background: linear-gradient(135deg, #b11226, #8f0e1d);
+  color: #ffffff;
+  border: none;
+  padding: 12px 0;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.lnf-modal-actions .btn-danger:hover {
+  opacity: 0.95;
+}
+
+/* Overlay */
+.lnf-modal-overlay {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+/* Animation */
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .lnf-modal {
+    width: 92%;
+    padding: 22px;
+  }
+}

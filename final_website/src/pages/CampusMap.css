@@ -1,0 +1,145 @@
+/* Map.css - High Fidelity Thapar Red Theme */
+
+.map-page-wrapper {
+  background-color: #fffafa; /* Consistent Nexus background */
+  min-height: 100vh;
+  padding: 40px 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.map-container {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Header Styling */
+.map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.map-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.map-icon-red {
+  color: #b11317; /* Thapar Red */
+}
+
+.map-page-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.map-page-subtitle {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Buttons */
+.map-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.map-btn-primary, .map-btn-secondary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 12px; /* Less round border style */
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.map-btn-primary {
+  background-color: #b11317;
+  color: white;
+  border: none;
+}
+
+.map-btn-primary:hover {
+  background-color: #8e0f12;
+  transform: translateY(-2px);
+}
+
+.map-btn-secondary {
+  background-color: white;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.map-btn-secondary:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+/* Map Viewer Card */
+.map-viewer-card {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.map-image-container {
+  width: 100%;
+  background-color: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  overflow: auto; /* Handles large image overflow */
+}
+
+.campus-static-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.map-viewer-footer {
+  padding: 16px;
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .map-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .map-actions {
+    width: 100%;
+  }
+
+  .map-btn-primary, .map-btn-secondary {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .map-page-title {
+    font-size: 2rem;
+  }
+}

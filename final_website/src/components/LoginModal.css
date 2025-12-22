@@ -1,0 +1,179 @@
+/* LoginModal.css — FINAL */
+
+/* Overlay */
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal (base) */
+.login-modal {
+  background: #ffffff;
+  color: #111827;
+  width: 720px;              /* desktop size */
+  max-width: 94%;
+  border-radius: 16px;
+  display: flex;
+  gap: 28px;
+  padding: 24px;
+  position: relative;
+
+  /* critical for phones / split screen */
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Close button */
+.login-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+/* Sections */
+.login-left,
+.login-right {
+  flex: 1;
+}
+
+.login-left h2,
+.login-right h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.sub {
+  margin-top: 4px;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* Roles */
+.roles-list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.role-card {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.role-card p {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.role-card.active {
+  border-color: #b11317;
+  background: rgba(177, 19, 23, 0.08);
+}
+
+.role-card:hover {
+  background: #f9fafb;
+}
+
+/* Right side */
+.login-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* CTA */
+.continue-btn {
+  margin-top: 20px;
+  background: #b11317;
+  border: none;
+  color: #ffffff;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.continue-btn:hover {
+  background: #951014;
+}
+
+/* ========================= */
+/* TABLET + MOBILE           */
+/* ========================= */
+@media (max-width: 768px) {
+  .login-modal {
+    flex-direction: column;
+    width: 100%;
+    max-width: 480px;     /* prevents edge-to-edge */
+    padding: 16px;        /* tighter */
+    gap: 16px;
+    margin: 0 12px;
+    max-height: 88vh;
+  }
+
+  .login-left h2,
+  .login-right h2 {
+    font-size: 1.25rem;
+  }
+
+  .sub {
+    font-size: 0.9rem;
+    margin-top: 2px;
+  }
+
+  .roles-list {
+    margin-top: 12px;
+    gap: 8px;
+  }
+
+  .role-card {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .role-card p {
+    font-size: 0.9rem;
+  }
+
+  .continue-btn {
+    margin-top: 14px;
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}
+
+/* ========================= */
+/* VERY SMALL HEIGHT / SPLIT */
+/* ========================= */
+@media (max-height: 650px) {
+  .login-modal {
+    max-height: 85vh;
+    padding: 14px;
+  }
+
+  .roles-list {
+    gap: 6px;
+  }
+
+  .role-card {
+    padding: 8px 10px;
+  }
+}

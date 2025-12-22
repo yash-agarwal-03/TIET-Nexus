@@ -1,0 +1,280 @@
+/* Team.css - Full High-Fidelity Responsive Version */
+
+.team-container-fluid {
+  padding: 40px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fffafa; /* Matches Next.js Explore background */
+}
+
+.team-header-compact {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.team-header-compact h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 12px;
+  letter-spacing: -0.025em;
+}
+
+.team-header-compact p {
+  color: #64748b;
+  font-size: 1.125rem;
+}
+
+.team-section-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 28px;
+  border-left: 5px solid #b11317; /* Thapar Red Accent */
+  padding-left: 15px;
+}
+
+/* --- Supervisor Grid (Horizontal Cards) --- */
+.supervisor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.supervisor-card-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.supervisor-card-horizontal:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Development Team Grid (Vertical Cards) --- */
+.student-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 Columns on PC */
+  gap: 28px;
+  margin-bottom: 60px;
+}
+
+/* Centers the 3rd card in the second row for the student grid */
+.student-grid > .developer-card-vertical:nth-child(3):last-child {
+  grid-column: 1 / -1; 
+  justify-self: center;
+  width: 100%;
+  max-width: calc(50% - 14px); 
+}
+
+.developer-card-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 40px 32px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.developer-card-vertical:hover {
+  transform: translateY(-6px);
+  border-color: #fee2e2;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Avatar Styling --- */
+.team-avatar-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #f8fafc;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #f1f5f9;
+  flex-shrink: 0;
+  margin-bottom: 16px;
+}
+
+.developer-card-vertical .team-avatar-circle {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 20px;
+}
+
+.team-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-avatar-initials {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #b11317;
+}
+
+/* --- Socials & Contact Actions --- */
+.member-contact-actions, .member-socials-row {
+  display: flex;
+  flex-direction: row; /* Side-by-side on PC */
+  gap: 12px;
+  margin-top: 16px;
+  width: 100%;
+  justify-content: center;
+}
+
+.supervisor-card-horizontal .member-contact-actions {
+  justify-content: flex-start;
+}
+
+.member-action-pill, .social-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px; /* Consistently less round */
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e293b;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.member-action-pill svg, .social-pill svg {
+  color: #b11317; /* Thapar Red icons */
+}
+
+.member-action-pill:hover, .social-pill:hover {
+  background-color: #ffffff;
+  border-color: #b11317;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(177, 19, 23, 0.1);
+}
+
+/* --- Typography --- */
+.member-name-compact {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.member-role-compact {
+  color: #b11317;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.email-text {
+  font-size: 0.85rem;
+  color: #475569;
+  font-weight: 500;
+}
+
+/* --- Footer --- */
+.team-footer-simple {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.footer-circle-logo {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  background: #f8fafc;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-circle-logo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.footer-about-text h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.footer-about-text p {
+  color: #64748b;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 1024px) {
+  .supervisor-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .student-grid > .developer-card-vertical:nth-child(3):last-child {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-header-compact h1 { font-size: 2.25rem; }
+  
+  .student-grid {
+    grid-template-columns: 1fr; /* Single column on phones */
+  }
+
+  .supervisor-card-horizontal {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 24px;
+  }
+
+  .supervisor-card-horizontal .member-contact-actions {
+    justify-content: center;
+  }
+
+  /* Vertically stack socials on phones */
+  .member-contact-actions, .member-socials-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .member-action-pill, .social-pill {
+    justify-content: center;
+  }
+
+  .team-footer-simple {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 24px;
+  }
+}
