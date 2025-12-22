@@ -16,9 +16,22 @@ from config import (
 # Load environment variables from .env
 load_dotenv()
 
-# Set environment variables
-os.environ['HUGGINGFACE_API_KEY'] = HUGGINGFACE_API_KEY
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+# # Set environment variables
+# os.environ['HUGGINGFACE_API_KEY'] = HUGGINGFACE_API_KEY
+# GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
+import streamlit as st
+from config import (
+    EMBEDDING_MODEL,
+    CHROMA_DB_PATH,
+    LLM_MODEL,
+    HUGGINGFACE_API_KEY,
+    GROQ_API_KEY
+)
+
+if HUGGINGFACE_API_KEY:
+    os.environ["HUGGINGFACE_API_KEY"] = HUGGINGFACE_API_KEY
+
 
 # Check if Groq API key exists
 if not GROQ_API_KEY:
