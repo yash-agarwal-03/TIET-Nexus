@@ -1,21 +1,36 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { 
-  Home, Compass, Map, Bot, Rss, Search, Phone, Users, X, LogIn, LogOut 
+import {
+  Home,
+  Compass,
+  Map,
+  Bot,
+  Rss,
+  Search,
+  Phone,
+  Users,
+  X,
+  LogIn,
+  LogOut,
 } from "lucide-react";
 import { useModal } from "../context/ModalContext";
 import { useAuth } from "../context/AuthContext";
 import "./MobileSidebar.css";
 
+// Team removed from main navItems array
 const navItems = [
   { name: "Welcome", to: "/", icon: Home },
   { name: "Explore", to: "/explore", icon: Compass },
   { name: "Campus Map", to: "/map", icon: Map },
-  { name: "Thapar AI", to: "https://tiet-nexus-rag-chatbot.streamlit.app/", icon: Bot, isExternal: true },
+  {
+    name: "Thapar AI",
+    to: "https://tiet-nexus-rag-chatbot.streamlit.app/",
+    icon: Bot,
+    isExternal: true,
+  },
   { name: "Feeds", to: "/feeds", icon: Rss },
   { name: "Lost & Found", to: "/lost-found", icon: Search },
   { name: "Contact Us", to: "/contact", icon: Phone },
-  { name: "Team", to: "/team", icon: Users },
 ];
 
 export default function MobileSidebar({ isOpen, onClose }) {
@@ -25,18 +40,17 @@ export default function MobileSidebar({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const initials = user?.name
-    ? user.name.split(" ").map((n) => n[0]).join("")
+    ? user.name
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
     : "G";
 
   return (
     <>
-      {/* Semi-transparent dark overlay */}
       <div className="msb-overlay active" onClick={onClose} />
 
-      {/* Main Drawer Container */}
       <aside className="msb-drawer open">
-        
-        {/* Top Header Section */}
         <div className="msb-header">
           <div className="msb-brand">
             <div className="msb-logo-box">
@@ -49,18 +63,21 @@ export default function MobileSidebar({ isOpen, onClose }) {
           </button>
         </div>
 
-        {/* User Status Card (Floating Guest Card) */}
         <div className="msb-user-section">
           <div className="msb-user-card">
             <div className="msb-avatar">{initials}</div>
             <div className="msb-user-info">
-              <span className="msb-username">{isLoggedIn ? user.name : "Guest"}</span>
+              <span className="msb-username">
+                {isLoggedIn ? user.name : "Guest"}
+              </span>
             </div>
-            
             {!isLoggedIn ? (
-              <button 
-                className="msb-auth-btn" 
-                onClick={() => { onClose(); openLogin(); }}
+              <button
+                className="msb-auth-btn"
+                onClick={() => {
+                  onClose();
+                  openLogin();
+                }}
               >
                 <LogIn size={18} />
               </button>
@@ -72,13 +89,12 @@ export default function MobileSidebar({ isOpen, onClose }) {
           </div>
         </div>
 
-        {/* Navigation Menu List */}
+        {/* Main Menu List */}
         <nav className="msb-nav">
           <ul>
             {navItems.map(({ name, to, icon: Icon, isExternal }) => (
               <li key={name}>
                 {isExternal ? (
-                  /* Render external link for Thapar AI */
                   <a
                     href={to}
                     target="_blank"
@@ -90,11 +106,12 @@ export default function MobileSidebar({ isOpen, onClose }) {
                     <span>{name}</span>
                   </a>
                 ) : (
-                  /* Render internal NavLink for all other pages */
                   <NavLink
                     to={to}
                     end={to === "/"}
-                    className={({ isActive }) => `msb-link ${isActive ? "active" : ""}`}
+                    className={({ isActive }) =>
+                      `msb-link ${isActive ? "active" : ""}`
+                    }
                     onClick={onClose}
                   >
                     <Icon size={22} className="msb-icon" />
@@ -105,6 +122,31 @@ export default function MobileSidebar({ isOpen, onClose }) {
             ))}
           </ul>
         </nav>
+
+        {/* Bottom Footer Section */}
+        <div
+          className="msb-footer-section"
+          style={{ marginTop: "auto", padding: "16px 12px" }}
+        >
+          <p
+            style={{
+              fontSize: "12px",
+              color: "#6b7280",
+              margin: "0 0 10px 14px",
+              fontWeight: "700",
+            }}
+          >
+            Developed by CSED
+          </p>
+          <NavLink
+            to="/team"
+            className={({ isActive }) => `msb-link ${isActive ? "active" : ""}`}
+            onClick={onClose}
+          >
+            <Users size={22} className="msb-icon" />
+            <span>Team</span>
+          </NavLink>
+        </div>
       </aside>
     </>
   );
